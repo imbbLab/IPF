@@ -1,0 +1,14 @@
+\usepackage{mathtools}
+\newcommand{\abs}[1]{\left\vert#1\right\vert} % absolute value |x|
+\newcommand{\prob}[1]{\mathfrak{#1}}
+\newcommand{\multidistro}{\text{mult}}
+
+\newcommand{\dimstatespace}{{\abs{\mathcal{A}}}}
+\newcommand{\maxent}{\textsc{m}ax\textsc{e}nt~}
+\newcommand{\maxentP}{\hat{\prob p}}
+\newcommand{\ipf}{\textsc{ipf}~}
+
+\DeclarePairedDelimiterX\infdivx[2]{(}{)}{
+  #1\;\delimsize\|\;#2
+}
+\newcommand{\infdiv}{D_\textsc{kl}\infdivx}

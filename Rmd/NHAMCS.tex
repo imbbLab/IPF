@@ -1,0 +1,1810 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Materials and Methods},
+  pdfauthor={Orestis Loukas \& Ho-Ryun Chung},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{mathtools}
+\newcommand{\abs}[1]{\left\vert#1\right\vert} % absolute value |x|
+\newcommand{\prob}[1]{\mathfrak{#1}}
+\newcommand{\multidistro}{\text{mult}}
+
+\newcommand{\dimstatespace}{{\abs{\mathcal{A}}}}
+\newcommand{\maxent}{\textsc{m}ax\textsc{e}nt~}
+\newcommand{\maxentP}{\hat{\prob p}}
+\newcommand{\ipf}{\textsc{ipf}~}
+
+\DeclarePairedDelimiterX\infdivx[2]{(}{)}{
+  #1\;\delimsize\|\;#2
+}
+\newcommand{\infdiv}{D_\textsc{kl}\infdivx}
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Materials and Methods}
+\author{Orestis Loukas \& Ho-Ryun Chung}
+\date{}
+
+\begin{document}
+\maketitle
+
+\hypertarget{toy-model}{%
+\section{Toy model}\label{toy-model}}
+
+\hypertarget{integer-solutions}{%
+\subsection{Integer solutions}\label{integer-solutions}}
+
+The toy model with \(L = 3\) binary features has \(\dimstatespace = 8\)
+microstates. Using pairwise marginal constraints as information for the
+estimation by \ipf we have a coefficient matrix \(\mathbf{C}\) with the
+\(D = 12\) marginal constraints in the rows and the
+\(\dimstatespace = 8\) microstates in the columns
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{C }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}
+  \FunctionTok{c}\NormalTok{(}
+    \DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }
+    \DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{,}
+    \DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{,}
+    \DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{,}
+    \DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{,}
+    \DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{,}
+    \DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{,}
+    \DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{,}
+    \DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{,}
+    \DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{,}
+    \DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{,}
+    \DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}
+\NormalTok{  ),}
+  \AttributeTok{ncol =} \DecValTok{8}\NormalTok{,}
+  \AttributeTok{byrow =} \ConstantTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+The marginal constraints \(\left\{ \widehat m_a\right\}_{a=1,...,D}\)
+are given by
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mVal }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\DecValTok{30}\NormalTok{, }\DecValTok{14}\NormalTok{, }\DecValTok{27}\NormalTok{, }\DecValTok{29}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{48}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{39}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{29}\NormalTok{, }\DecValTok{14}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+The integer solutions of the so-defined linear system are
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sols }\OtherTok{=} \FunctionTok{matrix}\NormalTok{(}
+    \FunctionTok{c}\NormalTok{(}
+        \DecValTok{15}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{5}\NormalTok{,}
+        \DecValTok{14}\NormalTok{, }\DecValTok{16}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{23}\NormalTok{, }\DecValTok{6}\NormalTok{,}
+        \DecValTok{16}\NormalTok{, }\DecValTok{14}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{23}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{4}\NormalTok{,}
+        \DecValTok{13}\NormalTok{, }\DecValTok{17}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{26}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{22}\NormalTok{, }\DecValTok{7}\NormalTok{,}
+        \DecValTok{17}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{22}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{26}\NormalTok{, }\DecValTok{3}\NormalTok{,}
+        \DecValTok{18}\NormalTok{, }\DecValTok{12}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{12}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{27}\NormalTok{, }\DecValTok{2}\NormalTok{,}
+        \DecValTok{12}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{27}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{8}\NormalTok{,}
+        \DecValTok{19}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{28}\NormalTok{, }\DecValTok{1}\NormalTok{, }
+        \DecValTok{20}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{14}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{29}\NormalTok{, }\DecValTok{0} 
+\NormalTok{    ),}
+    \AttributeTok{ncol =} \DecValTok{8}\NormalTok{,}
+    \AttributeTok{byrow =} \ConstantTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+a matrix with the solutions in the rows and the microstates in the
+columns.
+
+Using the solutions we calculate the multinomial probability
+\(\text{mult}(N\prob p;\prob u)\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{multinom }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(sols, }\DecValTok{1}\NormalTok{, }\ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{dmultinom}\NormalTok{(x, }\AttributeTok{prob =} \FunctionTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{8}\NormalTok{), }\AttributeTok{log =} \ConstantTok{TRUE}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+the multinomial coefficients \(W[N\prob p]\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mult }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(sols, }\DecValTok{1}\NormalTok{, }\ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{lfactorial}\NormalTok{(}\FunctionTok{sum}\NormalTok{(x)) }\SpecialCharTok{{-}} \FunctionTok{sum}\NormalTok{(}\FunctionTok{lfactorial}\NormalTok{(x)))}
+\end{Highlighting}
+\end{Shaded}
+
+and \(N\) times the entropy \(N H[\prob p]\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nEntropy }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(}
+\NormalTok{    sols, }\DecValTok{1}\NormalTok{,}
+    \ControlFlowTok{function}\NormalTok{(x)\{}
+        \FunctionTok{sum}\NormalTok{(x) }\SpecialCharTok{*} \FunctionTok{sum}\NormalTok{(}\FunctionTok{ifelse}\NormalTok{(x }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\NormalTok{x }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(x) }\SpecialCharTok{*} \FunctionTok{log}\NormalTok{(x }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(x)), }\DecValTok{0}\NormalTok{))}
+\NormalTok{    \}}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+We define the microstates
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{microstates }\OtherTok{\textless{}{-}} \FunctionTok{t}\NormalTok{(}\FunctionTok{sapply}\NormalTok{(}\DecValTok{0}\SpecialCharTok{:}\DecValTok{7}\NormalTok{,}\ControlFlowTok{function}\NormalTok{(x)\{ }\FunctionTok{as.integer}\NormalTok{(}\FunctionTok{intToBits}\NormalTok{(x))\})[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{, ])}
+\NormalTok{microstates }\OtherTok{\textless{}{-}}\NormalTok{ microstates[}\FunctionTok{order}\NormalTok{(microstates[,}\DecValTok{1}\NormalTok{], microstates[,}\DecValTok{2}\NormalTok{], microstates[,}\DecValTok{3}\NormalTok{]), ]}
+\end{Highlighting}
+\end{Shaded}
+
+and render \textbf{Figure 1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# get color palette}
+\FunctionTok{source}\NormalTok{(}\StringTok{"../R/colors.R"}\NormalTok{)}
+\FunctionTok{pdf}\NormalTok{(}\StringTok{"../figures/Figure1.pdf"}\NormalTok{, }\AttributeTok{width =} \FloatTok{4.33}\NormalTok{, }\AttributeTok{height =} \FloatTok{1.4}\NormalTok{, }\AttributeTok{pointsize =} \DecValTok{6}\NormalTok{)}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mar =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{) }\SpecialCharTok{+} \FloatTok{0.1}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(}\ConstantTok{NULL}\NormalTok{, }\AttributeTok{xlim =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{67}\NormalTok{), }\AttributeTok{ylim =} \FunctionTok{c}\NormalTok{(}\DecValTok{15}\NormalTok{, }\DecValTok{0}\NormalTok{), }\AttributeTok{axes =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{ann =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{frame =} \ConstantTok{FALSE}\NormalTok{)}
+
+\DocumentationTok{\#\# marginals}
+\NormalTok{cr }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(cols}\SpecialCharTok{$}\NormalTok{white, cols}\SpecialCharTok{$}\NormalTok{black)}
+\NormalTok{off }\OtherTok{=} \DecValTok{0}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{12}\NormalTok{)\{}
+\NormalTok{  mI }\OtherTok{\textless{}{-}} \FunctionTok{which}\NormalTok{(C[i, ] }\SpecialCharTok{==} \DecValTok{1}\NormalTok{) }
+\NormalTok{  fI }\OtherTok{\textless{}{-}} \FunctionTok{which}\NormalTok{(microstates[mI[}\DecValTok{1}\NormalTok{], ] }\SpecialCharTok{==}\NormalTok{ microstates[mI[}\DecValTok{2}\NormalTok{], ])}
+\NormalTok{  st }\OtherTok{\textless{}{-}}\NormalTok{ microstates[mI[}\DecValTok{1}\NormalTok{], fI]}
+  \FunctionTok{rect}\NormalTok{(}
+\NormalTok{    (fI }\SpecialCharTok{{-}} \FloatTok{0.5}\NormalTok{), (i }\SpecialCharTok{{-}} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}\NormalTok{ off, (fI }\SpecialCharTok{+} \FloatTok{0.5}\NormalTok{), (i }\SpecialCharTok{+} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}\NormalTok{ off, }
+    \AttributeTok{col =}\NormalTok{ cr[st }\SpecialCharTok{+} \DecValTok{1}\NormalTok{], }\AttributeTok{border =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{grey, }\AttributeTok{lwd =} \FloatTok{0.2}
+\NormalTok{  )}
+  \FunctionTok{text}\NormalTok{(}\FloatTok{0.5}\NormalTok{, i }\SpecialCharTok{+}\NormalTok{ off, mVal[i], }\AttributeTok{pos =} \DecValTok{2}\NormalTok{)}
+
+  \ControlFlowTok{if}\NormalTok{ (i }\SpecialCharTok{\%\%} \DecValTok{4} \SpecialCharTok{==} \DecValTok{0}\NormalTok{)\{}
+\NormalTok{      off }\OtherTok{\textless{}{-}}\NormalTok{ off }\SpecialCharTok{+} \FloatTok{0.2}
+\NormalTok{  \}}
+\NormalTok{\}}
+
+\DocumentationTok{\#\# coefficient matrix C == bipartite graph}
+\NormalTok{rr1 }\OtherTok{\textless{}{-}} \FunctionTok{which}\NormalTok{(C }\SpecialCharTok{!=} \DecValTok{0}\NormalTok{, }\AttributeTok{arr.ind =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{segments}\NormalTok{(}\DecValTok{4}\NormalTok{, rr1[,}\DecValTok{1}\NormalTok{] }\SpecialCharTok{+} \FloatTok{0.2} \SpecialCharTok{*}\NormalTok{ ((rr1[, }\DecValTok{1}\NormalTok{] }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{) }\SpecialCharTok{\%/\%} \DecValTok{4}\NormalTok{), }\DecValTok{9}\NormalTok{, rr1[,}\DecValTok{2}\NormalTok{] }\SpecialCharTok{+} \DecValTok{2}\NormalTok{, }\AttributeTok{col =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{red)}
+\NormalTok{yy }\OtherTok{\textless{}{-}} \DecValTok{3}\SpecialCharTok{:}\DecValTok{10}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{)\{}
+  \FunctionTok{rect}\NormalTok{(}
+    \DecValTok{9} \SpecialCharTok{+}\NormalTok{ i }\SpecialCharTok{{-}} \FloatTok{0.5}\NormalTok{, (yy }\SpecialCharTok{{-}} \FloatTok{0.5}\NormalTok{), }\DecValTok{9} \SpecialCharTok{+}\NormalTok{ i }\SpecialCharTok{+} \FloatTok{0.5}\NormalTok{, (yy }\SpecialCharTok{+} \FloatTok{0.5}\NormalTok{), }
+    \AttributeTok{col =}\NormalTok{ cr[microstates[, i] }\SpecialCharTok{+} \DecValTok{1}\NormalTok{], }\AttributeTok{border =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{grey, }\AttributeTok{lwd =} \FloatTok{0.2}
+\NormalTok{  )}
+\NormalTok{\}}
+
+\DocumentationTok{\#\# integer solution vectors}
+\NormalTok{base }\OtherTok{\textless{}{-}} \DecValTok{13}
+\FunctionTok{text}\NormalTok{(}\DecValTok{40}\NormalTok{, }\FloatTok{1.4}\NormalTok{, }\StringTok{"Integer solution vectors"}\NormalTok{)}
+\FunctionTok{segments}\NormalTok{(}\DecValTok{13}\NormalTok{, }\FloatTok{2.2}\NormalTok{, }\DecValTok{67}\NormalTok{, }\FloatTok{2.2}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(sols))\{}
+    \FunctionTok{text}\NormalTok{(base }\SpecialCharTok{+} \DecValTok{6}\NormalTok{, yy, sols[i,], }\AttributeTok{pos =} \DecValTok{2}\NormalTok{)}
+\NormalTok{    base }\OtherTok{\textless{}{-}}\NormalTok{ base }\SpecialCharTok{+} \DecValTok{6}
+\NormalTok{\}}
+\FunctionTok{segments}\NormalTok{(}\DecValTok{13}\NormalTok{, }\FloatTok{10.8}\NormalTok{, }\DecValTok{67}\NormalTok{, }\FloatTok{10.8}\NormalTok{)}
+
+\DocumentationTok{\#\# multinomial probability}
+\FunctionTok{text}\NormalTok{(}\FunctionTok{seq}\NormalTok{(}\DecValTok{19}\NormalTok{, }\DecValTok{67}\NormalTok{, }\AttributeTok{by =} \DecValTok{6}\NormalTok{), }\FloatTok{11.6}\NormalTok{, }\FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%.2f"}\NormalTok{, multinom), }\AttributeTok{pos =} \DecValTok{2}\NormalTok{, }\AttributeTok{cex =} \DecValTok{1}\NormalTok{)}
+\DocumentationTok{\#\# multinomial coefficient}
+\FunctionTok{text}\NormalTok{(}\FunctionTok{seq}\NormalTok{(}\DecValTok{19}\NormalTok{, }\DecValTok{67}\NormalTok{, }\AttributeTok{by =} \DecValTok{6}\NormalTok{), }\FloatTok{12.6}\NormalTok{, }\FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%.2f"}\NormalTok{, mult), }\AttributeTok{pos =} \DecValTok{2}\NormalTok{, }\AttributeTok{cex =} \DecValTok{1}\NormalTok{)}
+\DocumentationTok{\#\# N times Entropy}
+\FunctionTok{text}\NormalTok{(}\FunctionTok{seq}\NormalTok{(}\DecValTok{19}\NormalTok{, }\DecValTok{67}\NormalTok{, }\AttributeTok{by =} \DecValTok{6}\NormalTok{), }\FloatTok{13.6}\NormalTok{, }\FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%.2f"}\NormalTok{, nEntropy), }\AttributeTok{pos =} \DecValTok{2}\NormalTok{, }\AttributeTok{cex =} \DecValTok{1}\NormalTok{)}
+\DocumentationTok{\#\# labels}
+\FunctionTok{text}\NormalTok{(}\DecValTok{13}\NormalTok{, }\FloatTok{11.6}\NormalTok{, }\StringTok{"mult p"}\NormalTok{, }\AttributeTok{pos =} \DecValTok{2}\NormalTok{)}
+\FunctionTok{text}\NormalTok{(}\DecValTok{13}\NormalTok{, }\FloatTok{12.6}\NormalTok{, }\StringTok{"mult c"}\NormalTok{, }\AttributeTok{pos =} \DecValTok{2}\NormalTok{)}
+\FunctionTok{text}\NormalTok{(}\DecValTok{13}\NormalTok{, }\FloatTok{13.6}\NormalTok{, }\StringTok{"NH"}\NormalTok{, }\AttributeTok{pos =} \DecValTok{2}\NormalTok{)}
+\FunctionTok{segments}\NormalTok{(}\DecValTok{13}\NormalTok{, }\FloatTok{14.4}\NormalTok{, }\DecValTok{67}\NormalTok{, }\FloatTok{14.4}\NormalTok{)}
+\FunctionTok{dev.off}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{algorithm}{%
+\subsection{\texorpdfstring{\ipf algorithm}{algorithm}}\label{algorithm}}
+
+To illustrate the evolution of the estimate \(\maxentP\) during the
+iterations in \ipf we use the function \texttt{Ipfp} from the package
+\texttt{mipfp}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!} \FunctionTok{require}\NormalTok{(}\StringTok{"mipfp"}\NormalTok{, }\AttributeTok{quietly =} \ConstantTok{TRUE}\NormalTok{))}
+  \FunctionTok{install.packages}\NormalTok{(}\StringTok{"mipfp"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(mipfp)}
+\end{Highlighting}
+\end{Shaded}
+
+\texttt{Ipfp} takes as arguments
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{seed} the initial multi-dimensional array to be updated
+\item
+  \texttt{target.list} a list of dimensions correspond to the marginal
+  constraints
+\item
+  \texttt{target.data} the marginal constraints
+\end{itemize}
+
+We defined \texttt{seed} using the uniform distribution (all entries are
+\(1/8\)) and \texttt{dim\ =\ c(2,2,2)}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{seed }\OtherTok{=} \FunctionTok{array}\NormalTok{(}\DecValTok{1}\SpecialCharTok{/}\DecValTok{8}\NormalTok{, }\AttributeTok{dim =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+the \texttt{target.list}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{target.list }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}
+  \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{),}
+  \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{),}
+  \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+and the \texttt{target.data}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{target.data }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}
+  \FunctionTok{array}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{30}\NormalTok{,}\DecValTok{27}\NormalTok{,}\DecValTok{14}\NormalTok{,}\DecValTok{29}\NormalTok{) }\SpecialCharTok{/} \DecValTok{100}\NormalTok{, }\AttributeTok{dim =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{)),}
+  \FunctionTok{array}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{20}\NormalTok{,}\DecValTok{48}\NormalTok{,}\DecValTok{24}\NormalTok{,}\DecValTok{8}\NormalTok{) }\SpecialCharTok{/} \DecValTok{100}\NormalTok{, }\AttributeTok{dim =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{)),}
+  \FunctionTok{array}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{39}\NormalTok{, }\DecValTok{29}\NormalTok{, }\DecValTok{18}\NormalTok{,}\DecValTok{14}\NormalTok{) }\SpecialCharTok{/} \DecValTok{100}\NormalTok{, }\AttributeTok{dim =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+We ran \ipf 
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ipf }\OtherTok{\textless{}{-}} \FunctionTok{Ipfp}\NormalTok{(seed, target.list, target.data)}
+\end{Highlighting}
+\end{Shaded}
+
+The results is in \texttt{ipf\$p.hat}.
+
+We recorded the evolution of \(\maxentP\) during the iterations of \ipf
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# current result}
+\NormalTok{result }\OtherTok{\textless{}{-}}\NormalTok{ seed}
+
+\DocumentationTok{\#\# trajectory of p}
+\NormalTok{traj }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{()}
+\NormalTok{traj[[}\DecValTok{1}\NormalTok{]] }\OtherTok{=}\NormalTok{ result}
+\NormalTok{k }\OtherTok{\textless{}{-}} \DecValTok{2}
+
+\DocumentationTok{\#\# look at the first 4 cycles}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{) \{}
+\NormalTok{  result.temp }\OtherTok{\textless{}{-}}\NormalTok{ result}
+  \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(target.list)) \{}
+\NormalTok{    temp.sum }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(result, target.list[[j]], sum)}
+\NormalTok{    update.factor }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(target.data[[j]] }\SpecialCharTok{==} \DecValTok{0} \SpecialCharTok{|}\NormalTok{ temp.sum }\SpecialCharTok{==} 
+                              \DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, target.data[[j]]}\SpecialCharTok{/}\NormalTok{temp.sum)}
+\NormalTok{    result }\OtherTok{\textless{}{-}} \FunctionTok{sweep}\NormalTok{(result, target.list[[j]], update.factor, }
+                    \AttributeTok{FUN =} \StringTok{"*"}\NormalTok{)}
+\NormalTok{    traj[[k]] }\OtherTok{\textless{}{-}}\NormalTok{ result}
+\NormalTok{    k }\OtherTok{\textless{}{-}}\NormalTok{ k }\SpecialCharTok{+} \DecValTok{1}
+\NormalTok{  \}}
+\NormalTok{\}}
+\DocumentationTok{\#\# add the final solution of IPF to the trajectory}
+\NormalTok{traj[[k]] }\OtherTok{\textless{}{-}}\NormalTok{ ipf}\SpecialCharTok{$}\NormalTok{p.hat}
+\end{Highlighting}
+\end{Shaded}
+
+We generated a matrix of indices to query the multidimensional arrays
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{idx }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(}\FunctionTok{expand.grid}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{), }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{), }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+Using \texttt{idx} we get the values of \(\maxentP\) during the
+different phases
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gg }\OtherTok{\textless{}{-}} \FunctionTok{t}\NormalTok{(}\FunctionTok{sapply}\NormalTok{(traj, }\ControlFlowTok{function}\NormalTok{(x) x[idx]))}
+\end{Highlighting}
+\end{Shaded}
+
+and calculate the \textsc{KL} divergence from the final estimate
+\(\maxentP\) obtained by \ipf
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dkl }\OtherTok{=} \FunctionTok{sapply}\NormalTok{(traj[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{13}\NormalTok{], }\ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{sum}\NormalTok{(gg[}\DecValTok{14}\NormalTok{, ] }\SpecialCharTok{*} \FunctionTok{log}\NormalTok{(gg[}\DecValTok{14}\NormalTok{,] }\SpecialCharTok{/}\NormalTok{ x)))}
+\end{Highlighting}
+\end{Shaded}
+
+Finally we render \textbf{Figure 2}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pdf}\NormalTok{(}\AttributeTok{file =} \StringTok{"../figures/Figure2.pdf"}\NormalTok{, }\AttributeTok{width =} \FloatTok{4.33}\NormalTok{, }\AttributeTok{height =} \FloatTok{2.5}\NormalTok{, }\AttributeTok{pointsize =} \DecValTok{6}\NormalTok{)}
+
+\FunctionTok{layout}\NormalTok{(}
+  \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{), }\AttributeTok{nrow =} \DecValTok{2}\NormalTok{),}
+  \AttributeTok{height =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{)}
+\NormalTok{)}
+
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mar =} \FunctionTok{c}\NormalTok{(}\FloatTok{0.1}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{8}\NormalTok{) }\SpecialCharTok{+} \FloatTok{0.1}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(}\ConstantTok{NULL}\NormalTok{, }\AttributeTok{ylim =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.3}\NormalTok{), }\AttributeTok{xlim =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{13}\NormalTok{), }
+     \AttributeTok{ylab =} \StringTok{"IPF estimate"}\NormalTok{, }\AttributeTok{axes =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{xlab =} \StringTok{""}
+\NormalTok{)}
+
+\FunctionTok{rect}\NormalTok{(}\FloatTok{0.5}\NormalTok{, }\DecValTok{0}\NormalTok{, }\FloatTok{1.5}\NormalTok{, }\FloatTok{0.3}\NormalTok{, }\AttributeTok{col =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{white, }\AttributeTok{border =} \ConstantTok{NA}\NormalTok{)}
+\FunctionTok{rect}\NormalTok{(}\FloatTok{4.5}\NormalTok{, }\DecValTok{0}\NormalTok{, }\FloatTok{7.5}\NormalTok{, }\FloatTok{0.3}\NormalTok{, }\AttributeTok{col =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{white, }\AttributeTok{border =} \ConstantTok{NA}\NormalTok{)}
+\FunctionTok{rect}\NormalTok{(}\FloatTok{10.5}\NormalTok{, }\DecValTok{0}\NormalTok{, }\FloatTok{13.5}\NormalTok{, }\FloatTok{0.3}\NormalTok{, }\AttributeTok{col =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{white, }\AttributeTok{border =} \ConstantTok{NA}\NormalTok{)}
+\FunctionTok{text}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{9}\NormalTok{, }\DecValTok{12}\NormalTok{), }\FunctionTok{rep}\NormalTok{(}\FloatTok{0.28}\NormalTok{, }\DecValTok{4}\NormalTok{), }\FunctionTok{paste0}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{, }\StringTok{". cycle"}\NormalTok{))}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{h =}\NormalTok{ gg[}\DecValTok{14}\NormalTok{,], }\AttributeTok{lty =} \DecValTok{3}\NormalTok{, }\AttributeTok{col =} \FunctionTok{unlist}\NormalTok{(cols[}\DecValTok{3}\SpecialCharTok{:}\DecValTok{10}\NormalTok{]))}
+
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{8}\NormalTok{)\{}
+  \FunctionTok{lines}\NormalTok{(gg[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{13}\NormalTok{,i], }\AttributeTok{col =}\NormalTok{ cols[[i }\SpecialCharTok{+} \DecValTok{2}\NormalTok{]])}
+  \FunctionTok{points}\NormalTok{(gg[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{13}\NormalTok{,i], }\AttributeTok{col =}\NormalTok{ cols[[i }\SpecialCharTok{+} \DecValTok{2}\NormalTok{]], }\AttributeTok{pch =} \DecValTok{16}\NormalTok{)}
+\NormalTok{\}}
+\FunctionTok{axis}\NormalTok{(}\DecValTok{2}\NormalTok{, }\AttributeTok{las =} \DecValTok{1}\NormalTok{)}
+
+\FunctionTok{par}\NormalTok{(}\AttributeTok{xpd =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{text}\NormalTok{(}\FloatTok{13.5}\NormalTok{, gg[}\DecValTok{14}\NormalTok{, ], gg[}\DecValTok{14}\NormalTok{,], }\AttributeTok{col =} \FunctionTok{unlist}\NormalTok{(cols[}\DecValTok{3}\SpecialCharTok{:}\DecValTok{10}\NormalTok{]), }\AttributeTok{pos =} \DecValTok{4}\NormalTok{)}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{xpd =} \ConstantTok{FALSE}\NormalTok{)}
+
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mar =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{8}\NormalTok{) }\SpecialCharTok{+} \FloatTok{0.1}\NormalTok{)}
+
+\FunctionTok{plot}\NormalTok{(dkl, }\AttributeTok{log =} \StringTok{\textquotesingle{}y\textquotesingle{}}\NormalTok{, }\AttributeTok{frame =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{xaxt =} \StringTok{"n"}\NormalTok{, }\AttributeTok{ylim =} \FunctionTok{c}\NormalTok{(}\FloatTok{1e{-}7}\NormalTok{,}\DecValTok{1}\NormalTok{), }\AttributeTok{type =} \StringTok{\textquotesingle{}l\textquotesingle{}}\NormalTok{, }\AttributeTok{xlab =} \StringTok{""}\NormalTok{)}
+\FunctionTok{points}\NormalTok{(dkl, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{)}
+\FunctionTok{axis}\NormalTok{(}\DecValTok{1}\NormalTok{, }\AttributeTok{at =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{13}\NormalTok{, }\AttributeTok{labels =} \DecValTok{0}\SpecialCharTok{:}\DecValTok{12}\NormalTok{)}
+
+\FunctionTok{dev.off}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{iterative-proportional-fitting-using-the-nhamcs-data}{%
+\section{Iterative proportional fitting using the NHAMCS
+data}\label{iterative-proportional-fitting-using-the-nhamcs-data}}
+
+We will be using data from the public database of the \emph{National
+Center for Health Statistics}. Specifically, we have considered all
+entries documented over the years 2003,-,2018 at the emergency
+department (\textsc{ed}) by the National Hospital Ambulatory Medical
+Care Survey (\textsc{nhamcs})\footnote{Datasets and documentation can be
+  downloaded from
+  \href{https://www.cdc.gov/nchs/ahcd/datasets_documentation_related.htm\#notices}{https://www.cdc.gov/nchs/}
+  for public use.}.
+
+We have concentrated on patients whose fate is known, excluding anyone
+who either left against medical advice or left without being seen or
+before treatment completion. In addition, anyone who arrived already
+dead at the \textsc{ed} was excluded. In this way, \(N=392\,454\)
+records remained from which \(44\,293\) were admitted to the hospital. A
+patient is considered critical whenever the patient is admitted to an
+intensive/critical care unit (\textsc{icu}) or died during the hospital
+stay resulting in \(6\,300\) critical cases out of \(44\,293\)
+hospitalized patients. Here, we encounter a structural zero, because
+non-hospitalized but critical patients are impossible.
+
+In detail, we define \(L = 5\) categorical features:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{ageGroup}: age group of a patient with \(q_1 = 6\) states:
+  \([0, 15)\:(\alpha_1 = 0)\), \([15,25)\:(\alpha_1 = 1)\),
+  \([25, 45)\:(\alpha_1 = 2)\), \([45,65)\:(\alpha_1 = 3)\),
+  \([65, 75)\:(\alpha_1 = 4)\), and \([76, 100)\:(\alpha_1 = 5)\)
+\item
+  \texttt{sex}: sex of patient with \(q_2 = 2\) states: \texttt{female}
+  \((\alpha_2 = 0)\) or \texttt{male} \((\alpha_2 = 1)\)
+\item
+  \texttt{arrivalByAmbulance}: did the patient arrive by ambulance? with
+  \(q_3 = 2\) states: \texttt{no} \((\alpha_3 = 0)\) or \texttt{yes}
+  \((\alpha_3 = 1)\)
+\item
+  \texttt{hospitalization}: was the patient hospitalized? with
+  \(q_4 = 2\) states: \texttt{no} \((\alpha_4 = 0)\) or \texttt{yes}
+  \((\alpha_4 = 1)\)
+\item
+  \texttt{critical}: was the patient admitted to the intensive care unit
+  or died? with \(q_5 = 2\) states: `\texttt{no} \((\alpha_5 = 0)\) or
+  \texttt{yes} \((\alpha_5 = 1)\)
+\end{itemize}
+
+There are \(\dimstatespace = 6\cdot 2\cdot 2\cdot 2 \cdot 2 = 96\)
+microstates. However, from those only \(\vert\mathcal A'\vert=72\) are
+not associated with the aforementioned structural zero. We consider
+\emph{all} marginal relative frequencies of orders \(\ell = 1,2,3,4\).
+In principle we could estimate also the \maxent distribution for
+\(\ell = 5\), but due to the reduced state space \(\mathcal A'\), the
+equivalence class \([f]_{\ell = 4}\) incorporating all 4-order
+constraints is identical to \([f]_{\ell = 5}\) induced by the empirical
+distribution \(\prob f\) itself.
+
+\hypertarget{data-preparations}{%
+\subsection{Data preparations}\label{data-preparations}}
+
+The data with the empirical counts for the \(\dimstatespace = 96\)
+microstates is stored in the file \texttt{../data/empirical.csv}, which
+we load into R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{empirical }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"../data/empirical.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Here, we show the first 5 rows of the table:
+
+\begin{verbatim}
+##   ageGroup sex arrivalByAmbulance hospitalization critical count
+## 1        0   0                  0               0        0 32747
+## 2        1   0                  0               0        0 31172
+## 3        2   0                  0               0        0 54007
+## 4        3   0                  0               0        0 32345
+## 5        4   0                  0               0        0  8159
+## 6        5   0                  0               0        0  8761
+\end{verbatim}
+
+Some of the microstates have not been observed. These are associated
+with the structural zero between \texttt{hospitalization} \(=\)
+\texttt{no} and \texttt{critical} \(=\) \texttt{yes}:
+
+\begin{verbatim}
+##    ageGroup sex arrivalByAmbulance hospitalization critical count
+## 49        0   0                  0               0        1     0
+## 50        1   0                  0               0        1     0
+## 51        2   0                  0               0        1     0
+## 52        3   0                  0               0        1     0
+## 53        4   0                  0               0        1     0
+## 54        5   0                  0               0        1     0
+\end{verbatim}
+
+We define the number of features \(L\) and the number of states per
+features \(\mathbf q\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{L }\OtherTok{\textless{}{-}} \DecValTok{5}
+\NormalTok{q }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{6}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+From the empirical data we construct a joint distribution \(\prob f\) as
+an \texttt{array} with \texttt{dim\ =\ c(6,2,2,2)} \(=\mathbf q\).
+First, we extract a matrix \(\mathcal A\) with the
+\(\dimstatespace = 96\) microstates in the rows and the \(L = 5\)
+features in the columns:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(}
+\NormalTok{  empirical[, }
+    \FunctionTok{c}\NormalTok{(}
+      \StringTok{"ageGroup"}\NormalTok{, }
+      \StringTok{"sex"}\NormalTok{, }
+      \StringTok{"arrivalByAmbulance"}\NormalTok{, }
+      \StringTok{"hospitalization"}\NormalTok{, }
+      \StringTok{"critical"}
+\NormalTok{    )}
+\NormalTok{  ]}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+As R uses 1-based indexing, we construct from this an index matrix by
+adding one to any entry in \(\mathcal A\):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{idx }\OtherTok{\textless{}{-}}\NormalTok{ A }\SpecialCharTok{+} \DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+The empirical count for each microstate is stored in the column
+\texttt{count} of the data frame \texttt{empirical}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{h }\OtherTok{\textless{}{-}}\NormalTok{ empirical}\SpecialCharTok{$}\NormalTok{count}
+\end{Highlighting}
+\end{Shaded}
+
+The total number of records in the data set is given by the sum of the
+counts
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{N }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(h)}
+\end{Highlighting}
+\end{Shaded}
+
+We define the aforementioned array \(\prob f\) with \texttt{dim} =
+\(\mathbf q\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{f }\OtherTok{\textless{}{-}} \FunctionTok{array}\NormalTok{(}
+  \DecValTok{1}\NormalTok{,}
+  \AttributeTok{dim =}\NormalTok{ q}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+and fill the array using \texttt{idx} with the counts in \texttt{h}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{f[idx] }\OtherTok{=}\NormalTok{ h}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{estimation-of-distributions-with}{%
+\subsection{\texorpdfstring{Estimation of \maxent distributions with
+\ipf}{Estimation of distributions with }}\label{estimation-of-distributions-with}}
+
+\hypertarget{computation-of-all-ell-order-marginal-constraints-from-prob-f}{%
+\subsubsection{\texorpdfstring{Computation of all \(\ell\)-order
+marginal constraints from
+\(\prob f\)}{Computation of all \textbackslash ell-order marginal constraints from \textbackslash prob f}}\label{computation-of-all-ell-order-marginal-constraints-from-prob-f}}
+
+Using the empirical frequencies \(\prob f\) for all the
+\(\dimstatespace = 96\) we compute the marginal constraints of order
+\(\ell\). These correspond to all \(\ell\)-way contingency tables. We
+define a function to calculate these constraints
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{marginalsByOrder }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(f, ell, L)\{}
+  \ControlFlowTok{if}\NormalTok{ (ell }\SpecialCharTok{\textgreater{}} \DecValTok{0} \SpecialCharTok{\&\&}\NormalTok{ ell }\SpecialCharTok{\textless{}}\NormalTok{ L)\{}
+\NormalTok{    tuples }\OtherTok{\textless{}{-}} \FunctionTok{combn}\NormalTok{(}\FunctionTok{seq\_len}\NormalTok{(L), ell)}
+\NormalTok{    marginals }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(}
+\NormalTok{      tuples, }\DecValTok{2}\NormalTok{,}
+      \ControlFlowTok{function}\NormalTok{(tuple)\{}
+        \FunctionTok{apply}\NormalTok{(f, tuple, sum)}
+\NormalTok{      \}}
+\NormalTok{    )}
+\NormalTok{    list }\OtherTok{\textless{}{-}} \FunctionTok{lapply}\NormalTok{(}\FunctionTok{seq\_len}\NormalTok{(}\FunctionTok{ncol}\NormalTok{(tuples)), }\ControlFlowTok{function}\NormalTok{(i) tuples[, i])}
+    
+    \FunctionTok{list}\NormalTok{(}\AttributeTok{marginals =}\NormalTok{ marginals, }\AttributeTok{list =}\NormalTok{ list)}
+\NormalTok{  \} }\ControlFlowTok{else}\NormalTok{\{}
+    \FunctionTok{list}\NormalTok{(}\AttributeTok{marginals =}\NormalTok{ f, }\AttributeTok{list =} \FunctionTok{list}\NormalTok{(}\FunctionTok{seq\_len}\NormalTok{(L)))}
+\NormalTok{  \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+The function takes as argument
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{f} the empirical frequencies \(\prob f\) stored in a
+  multidimensional \texttt{array} with \texttt{dim} \(=\mathbf q\)
+\item
+  \texttt{ell} the order \(\ell\) of the marginal constraints to compute
+\item
+  \texttt{L} the number of features \(L\)
+\end{itemize}
+
+As we want to compute \emph{all} marginal constraints of order \(\ell\)
+we generate all combinations of size \(\ell\) using \(L\) features
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tuples }\OtherTok{\textless{}{-}} \FunctionTok{combn}\NormalTok{(}\FunctionTok{seq\_len}\NormalTok{(L), ell)}
+\end{Highlighting}
+\end{Shaded}
+
+and then compute the marginals
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{marginals }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(}
+\NormalTok{  tuples, }\DecValTok{2}\NormalTok{,}
+  \ControlFlowTok{function}\NormalTok{(tuple)\{}
+    \FunctionTok{apply}\NormalTok{(f, tuple, sum)}
+\NormalTok{  \}}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+we store a list of feature indices that correspond to the marginal
+constraints
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{list }\OtherTok{\textless{}{-}} \FunctionTok{lapply}\NormalTok{(}\FunctionTok{seq\_len}\NormalTok{(}\FunctionTok{ncol}\NormalTok{(tuples)), }\ControlFlowTok{function}\NormalTok{(i) tuples[, i])}
+\end{Highlighting}
+\end{Shaded}
+
+Obviously, the marginal constraints are defined for orders
+\(\ell = 1, \ldots, L\). However, marginal constraints with order
+\(\ell = L\) correspond to the observed distribution \(\prob f\). Thus,
+in case \(\ell = L\), we just return \(\prob f\).
+
+\hypertarget{running}{%
+\subsubsection{\texorpdfstring{Running \ipf}{Running }}\label{running}}
+
+We defined \texttt{seed} using the uniform distribution (all entries are
+1) and \texttt{dim} \(=\mathbf q\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{seed }\OtherTok{\textless{}{-}} \FunctionTok{array}\NormalTok{(}
+  \DecValTok{1}\NormalTok{,}
+  \AttributeTok{dim =}\NormalTok{ q}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{order \(\ell = 1\) marginal constraints}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{m1 }\OtherTok{\textless{}{-}} \FunctionTok{marginalsByOrder}\NormalTok{(}
+  \AttributeTok{f =}\NormalTok{ f, }
+  \AttributeTok{ell =} \DecValTok{1}\NormalTok{, }
+  \AttributeTok{L =}\NormalTok{ L}
+\NormalTok{)}
+\NormalTok{phat1 }\OtherTok{\textless{}{-}} \FunctionTok{Ipfp}\NormalTok{(}
+  \AttributeTok{seed =}\NormalTok{ seed,}
+  \AttributeTok{target.list =}\NormalTok{ m1}\SpecialCharTok{$}\NormalTok{list,}
+  \AttributeTok{target.data =}\NormalTok{ m1}\SpecialCharTok{$}\NormalTok{marginals,}
+  \DocumentationTok{\#\# verbose}
+  \AttributeTok{print =} \ConstantTok{TRUE}              
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Margins consistency checked!
+## ... ITER 1 
+##        stoping criterion: 45162.5 
+## ... ITER 2 
+##        stoping criterion: 7.275958e-12 
+## Convergence reached after 2 iterations!
+\end{verbatim}
+
+\ipf stops after the first iteration. Trivially, first order constraints
+assume independence, i.e.~the joint distribution can be calculated in
+one step. \texttt{Ipfp} returns
+
+\begin{verbatim}
+## List of 7
+##  $ x.hat        : num [1:6, 1:2, 1:2, 1:2, 1:2] 30734 24333 45164 33460 9975 ...
+##  $ p.hat        : num [1:6, 1:2, 1:2, 1:2, 1:2] 0.0783 0.062 0.1151 0.0853 0.0254 ...
+##  $ conv         : logi TRUE
+##  $ error.margins: num [1:5] 3.64e-12 2.91e-11 0.00 0.00 0.00
+##  $ evol.stp.crit: num [1:2] 4.52e+04 7.28e-12
+##  $ method       : chr "ipfp"
+##  $ call         : language Ipfp(seed = seed, target.list = m1$list, target.data = m1$marginals, print = TRUE)
+##  - attr(*, "class")= chr [1:2] "list" "mipfp"
+\end{verbatim}
+
+a list of 7 elements, where \texttt{\$\ p.hat} contains the estimated
+joint probability distribution \(\maxentP^{(\ell = 1)}\).
+
+\textbf{order \(\ell = 2\) marginal constraints}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{m2 }\OtherTok{\textless{}{-}} \FunctionTok{marginalsByOrder}\NormalTok{(}
+  \AttributeTok{f =}\NormalTok{ f, }
+  \AttributeTok{ell =} \DecValTok{2}\NormalTok{, }
+  \AttributeTok{L =}\NormalTok{ L}
+\NormalTok{)}
+\NormalTok{phat2 }\OtherTok{\textless{}{-}} \FunctionTok{Ipfp}\NormalTok{(}
+  \AttributeTok{seed =}\NormalTok{ seed,}
+  \AttributeTok{target.list =}\NormalTok{ m2}\SpecialCharTok{$}\NormalTok{list,}
+  \AttributeTok{target.data =}\NormalTok{ m2}\SpecialCharTok{$}\NormalTok{marginals}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{order \(\ell = 3\) marginal constraints}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{m3 }\OtherTok{\textless{}{-}} \FunctionTok{marginalsByOrder}\NormalTok{(}
+  \AttributeTok{f =}\NormalTok{ f, }
+  \AttributeTok{ell =} \DecValTok{3}\NormalTok{, }
+  \AttributeTok{L =}\NormalTok{ L}
+\NormalTok{)}
+\NormalTok{phat3 }\OtherTok{\textless{}{-}} \FunctionTok{Ipfp}\NormalTok{(}
+  \AttributeTok{seed =}\NormalTok{ seed,}
+  \AttributeTok{target.list =}\NormalTok{ m3}\SpecialCharTok{$}\NormalTok{list,}
+  \AttributeTok{target.data =}\NormalTok{ m3}\SpecialCharTok{$}\NormalTok{marginals}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{order \(\ell = 4\) marginal constraints}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{m4 }\OtherTok{\textless{}{-}} \FunctionTok{marginalsByOrder}\NormalTok{(}
+  \AttributeTok{f =}\NormalTok{ f, }
+  \AttributeTok{ell =} \DecValTok{4}\NormalTok{, }
+  \AttributeTok{L =}\NormalTok{ L}
+\NormalTok{)}
+\NormalTok{phat4 }\OtherTok{=} \FunctionTok{Ipfp}\NormalTok{(}
+  \AttributeTok{seed =}\NormalTok{ seed,}
+  \AttributeTok{target.list =}\NormalTok{ m4}\SpecialCharTok{$}\NormalTok{list,}
+  \AttributeTok{target.data =}\NormalTok{ m4}\SpecialCharTok{$}\NormalTok{marginals}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+As expect marginal constraints of order \(\ell = 4\) give back the
+empirical distribution \(\prob f\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{all.equal}\NormalTok{(f, phat4}\SpecialCharTok{$}\NormalTok{x.hat)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+We store the four \maxent distributions in a \texttt{data.frame} and
+save it to file \texttt{../data/TableS2.tsv}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{maxentFile }\OtherTok{\textless{}{-}} \StringTok{"../data/TableS2.tsv"}
+\NormalTok{maxentP }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+\NormalTok{  empirical[, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{],}
+  \AttributeTok{one =}\NormalTok{ phat1}\SpecialCharTok{$}\NormalTok{p.hat,}
+  \AttributeTok{two =}\NormalTok{ phat2}\SpecialCharTok{$}\NormalTok{p.hat,}
+  \AttributeTok{three =}\NormalTok{ phat3}\SpecialCharTok{$}\NormalTok{p.hat,}
+  \AttributeTok{four =}\NormalTok{ phat4}\SpecialCharTok{$}\NormalTok{p.hat,}
+  \AttributeTok{empirical =}\NormalTok{ empirical}\SpecialCharTok{$}\NormalTok{count }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(empirical}\SpecialCharTok{$}\NormalTok{count)}
+\NormalTok{)}
+\FunctionTok{write.table}\NormalTok{(maxentP, }\AttributeTok{file =}\NormalTok{ maxentFile, }\AttributeTok{sep =} \StringTok{\textquotesingle{}}\SpecialCharTok{\textbackslash{}t}\StringTok{\textquotesingle{}}\NormalTok{, }\AttributeTok{quote =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{subsampling}{%
+\subsection{Subsampling}\label{subsampling}}
+
+We assume that the empirical distribution \(\prob f\) describes a
+``population'' of infinite size, i.e.~it corresponds to a fictitious
+asymptotic distribution. From this ``asymptotic'' distribution we sample
+data sets of size \(N_s\) with replacement. These data sets are
+conveniently summarized by the frequencies of the 72 possible
+microstates (\texttt{fs}). To prevent infinities during the calculation
+of the \textsc{kl} divergence we add a pseudocount of unity to all 72
+admissible microstates.
+
+\hypertarget{ell-uniform-order-marginal-constraints}{%
+\subsubsection{\texorpdfstring{\(\ell\)-uniform order marginal
+constraints}{\textbackslash ell-uniform order marginal constraints}}\label{ell-uniform-order-marginal-constraints}}
+
+We estimate model probability distributions \(\prob p^{(s,\ell)}\) for
+sets of marginal constraints encompassing \emph{all} marginal
+constraints of a given order \(\ell = 1,2,3,4\). Model distributions
+\(\maxentP_{s}^{(\ell)}\) obtained with \(\ell=4,5\) coincide due to the
+structural zero between hospitalization and criticality.
+
+We will subsample (with replacement) from the empirical distribution
+\(\prob f\). For this we define a function
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{subSampleUniform }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(subSampleSize, }\AttributeTok{ells =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{))\{}
+  
+  \DocumentationTok{\#\# define the multi{-}dimensional "empirical" distribution}
+\NormalTok{  fs }\OtherTok{\textless{}{-}} \FunctionTok{array}\NormalTok{(}
+    \DecValTok{1}\NormalTok{,}
+    \AttributeTok{dim =}\NormalTok{ q}
+\NormalTok{  )}
+  \DocumentationTok{\#\# fill it with multinomial samples according to the empirical}
+  \DocumentationTok{\#\# multinomial probabilitites stored in f}
+\NormalTok{  fs[idx] }\OtherTok{\textless{}{-}} \FunctionTok{rmultinom}\NormalTok{(}
+    \AttributeTok{n =} \DecValTok{1}\NormalTok{, }
+    \AttributeTok{size =}\NormalTok{ subSampleSize, }
+    \AttributeTok{prob =}\NormalTok{ h}
+\NormalTok{  )}
+  
+  \DocumentationTok{\#\# regularize all entries, where the original f was non{-}zero}
+\NormalTok{  fs[f }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{] }\OtherTok{=}\NormalTok{ fs[f }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{] }\SpecialCharTok{+} \DecValTok{1}
+  
+  \DocumentationTok{\#\# compute the IPF models for the orders stored in ells}
+\NormalTok{  res }\OtherTok{\textless{}{-}} \FunctionTok{sapply}\NormalTok{(}
+\NormalTok{    ells,}
+    \ControlFlowTok{function}\NormalTok{(ell)\{}
+      \DocumentationTok{\#\# order ell marginal constraints}
+\NormalTok{      m }\OtherTok{\textless{}{-}} \FunctionTok{marginalsByOrder}\NormalTok{(fs, ell, L)}
+      
+      \DocumentationTok{\#\# define the seed}
+\NormalTok{      seed }\OtherTok{\textless{}{-}} \FunctionTok{array}\NormalTok{(}
+        \DecValTok{1}\NormalTok{,}
+        \AttributeTok{dim =}\NormalTok{ q}
+\NormalTok{      )}
+      
+      \DocumentationTok{\#\# run IPF}
+\NormalTok{      p.hat }\OtherTok{=} \FunctionTok{Ipfp}\NormalTok{(}
+        \AttributeTok{seed =}\NormalTok{ seed, }
+        \AttributeTok{target.list =}\NormalTok{ m}\SpecialCharTok{$}\NormalTok{list,}
+        \AttributeTok{target.data =}\NormalTok{ m}\SpecialCharTok{$}\NormalTok{marginals,}
+        \AttributeTok{iter =} \DecValTok{10000}
+\NormalTok{      )}\SpecialCharTok{$}\NormalTok{p.hat}
+      
+      \DocumentationTok{\#\# calculate KL divergence}
+      \FunctionTok{sum}\NormalTok{(}\FunctionTok{ifelse}\NormalTok{(f }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{, f }\SpecialCharTok{*}\NormalTok{ (}\FunctionTok{log}\NormalTok{(f) }\SpecialCharTok{{-}} \FunctionTok{log}\NormalTok{(p.hat)), }\DecValTok{0}\NormalTok{))}
+\NormalTok{    \}}
+\NormalTok{  )}
+  \DocumentationTok{\#\# "empirical"}
+  \FunctionTok{c}\NormalTok{(}
+\NormalTok{    res,}
+    \FunctionTok{sum}\NormalTok{(}\FunctionTok{ifelse}\NormalTok{(f }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{, f }\SpecialCharTok{*}\NormalTok{ (}\FunctionTok{log}\NormalTok{(f) }\SpecialCharTok{{-}} \FunctionTok{log}\NormalTok{(fs }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(fs))), }\DecValTok{0}\NormalTok{))}
+\NormalTok{  )}
+    
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Every ``model'' uses the complete set of possibly redundant marginal
+constraints.
+
+To get reproducible results we set a \texttt{seed}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{seed }\OtherTok{=} \DecValTok{20220308}
+\FunctionTok{set.seed}\NormalTok{(seed)}
+\end{Highlighting}
+\end{Shaded}
+
+and sample for each of the subsample sizes 20000 subsamples
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Ns }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{5000}\NormalTok{, }\FunctionTok{seq}\NormalTok{(}\DecValTok{10000}\NormalTok{, }\DecValTok{390000}\NormalTok{, }\AttributeTok{by =} \DecValTok{10000}\NormalTok{), N)}
+\NormalTok{nSamples }\OtherTok{\textless{}{-}} \DecValTok{20000}
+\end{Highlighting}
+\end{Shaded}
+
+For each of these subsamples we compute the KL divergence from the
+empirical \(\prob f\) for the four different orders \(\ell = 1,2,3,4\)
+of marginal constrains. We perform the subsampling in parallel using the
+function \texttt{mclapply} of the package \texttt{parallel}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!} \FunctionTok{require}\NormalTok{(}\StringTok{"parallel"}\NormalTok{, }\AttributeTok{quietly =} \ConstantTok{TRUE}\NormalTok{))}
+  \FunctionTok{install.packages}\NormalTok{(}\StringTok{"parallel"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(parallel)}
+\end{Highlighting}
+\end{Shaded}
+
+using \texttt{mc.cores} = 256 cores:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dklUniform }\OtherTok{\textless{}{-}} \FunctionTok{lapply}\NormalTok{(}
+\NormalTok{  Ns,}
+  \ControlFlowTok{function}\NormalTok{(subSampleSize)\{}
+    
+\NormalTok{    res }\OtherTok{\textless{}{-}} \FunctionTok{mclapply}\NormalTok{(}
+      \DecValTok{1}\SpecialCharTok{:}\NormalTok{nSamples,}
+      \ControlFlowTok{function}\NormalTok{(i)\{}
+        \FunctionTok{subSampleUniform}\NormalTok{(subSampleSize)}
+\NormalTok{      \},}
+      \AttributeTok{mc.cores =} \DecValTok{256}
+\NormalTok{    )}
+    
+    \FunctionTok{matrix}\NormalTok{(}\FunctionTok{unlist}\NormalTok{(res), }\AttributeTok{ncol =} \DecValTok{4}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{  \}}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+The results are saved in a file \texttt{../data/dklUniform.RData}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dklFile }\OtherTok{\textless{}{-}} \StringTok{"../data/dklUniform.RData"}
+\FunctionTok{save}\NormalTok{(seed, dklUniform, }\AttributeTok{file =}\NormalTok{ dklFile)}
+\end{Highlighting}
+\end{Shaded}
+
+For convenience, we provide a R-script in
+\texttt{../R/uniformOrderConstraints.R} that performs the subsampling,
+estimation of the models, and calculation of the \textsc{kl} divergence.
+The results can be loaded by sourcing the corresponding R-script.
+
+\hypertarget{figure-3}{%
+\paragraph{Figure 3}\label{figure-3}}
+
+This script produces Figure 3. We generate/load the subsample data
+stored in list \texttt{dklUniform} by sourcing the file
+\texttt{../R/subSample.R}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{source}\NormalTok{(}\StringTok{"../R/uniformOrderConstraints.R"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+In addition we source our color palette
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{source}\NormalTok{(}\StringTok{"../R/colors.R"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Compute the average KL-divergences per subsample size and per
+\(\maxentP_{s}^{(\ell)}\) model
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{KLavg }\OtherTok{\textless{}{-}} \FunctionTok{sapply}\NormalTok{(}
+\NormalTok{  dklUniform, }
+\NormalTok{  colMeans  }
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\(\prob p^{(s,\ell)}\)
+
+Render the Figure
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pdf}\NormalTok{(}\StringTok{"../figures/Figure3.pdf"}\NormalTok{, }\AttributeTok{width =} \FloatTok{7.08}\NormalTok{, }\AttributeTok{height =} \FloatTok{2.5}\NormalTok{, }\AttributeTok{pointsize =} \DecValTok{8}\NormalTok{)}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mar =} \FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{) }\SpecialCharTok{+} \FloatTok{0.1}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(}
+  \DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(KLavg), KLavg[}\DecValTok{2}\NormalTok{, ], }
+  \AttributeTok{ylim =} \FunctionTok{c}\NormalTok{(}\FloatTok{1e{-}4}\NormalTok{, }\FloatTok{1e{-}2}\NormalTok{), }\AttributeTok{log =} \StringTok{"y"}\NormalTok{, }
+  \AttributeTok{col =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{yellow, }\AttributeTok{frame =} \ConstantTok{FALSE}\NormalTok{, }
+  \AttributeTok{xlim =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FunctionTok{ncol}\NormalTok{(KLavg) }\SpecialCharTok{+} \DecValTok{1}\NormalTok{), }
+  \AttributeTok{pch =} \DecValTok{16}\NormalTok{, }\AttributeTok{cex =} \FloatTok{0.5}\NormalTok{, }
+  \AttributeTok{axes =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{ann =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{xaxs =} \StringTok{"i"}
+\NormalTok{) }
+\FunctionTok{lines}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(KLavg), KLavg[}\DecValTok{2}\NormalTok{,], }\AttributeTok{col =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{yellow)}
+\FunctionTok{points}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(KLavg), KLavg[}\DecValTok{3}\NormalTok{, ], }\AttributeTok{col =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{red, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{, }\AttributeTok{cex =} \FloatTok{0.5}\NormalTok{) }\DocumentationTok{\#\# IPF{-}3}
+\FunctionTok{lines}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(KLavg), KLavg[}\DecValTok{3}\NormalTok{, ], }\AttributeTok{col =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{red)}
+\FunctionTok{points}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(KLavg), KLavg[}\DecValTok{4}\NormalTok{,], }\AttributeTok{col =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{purple, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{, }\AttributeTok{cex =} \FloatTok{0.5}\NormalTok{) }\DocumentationTok{\#\# IPF{-}4}
+\FunctionTok{lines}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(KLavg), KLavg[}\DecValTok{4}\NormalTok{,], }\AttributeTok{col =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{purple)}
+
+\FunctionTok{axis}\NormalTok{(}\DecValTok{2}\NormalTok{, }\AttributeTok{at =} \FunctionTok{c}\NormalTok{(}\FloatTok{1e{-}7}\NormalTok{, }\FloatTok{1e{-}6}\NormalTok{, }\FloatTok{1e{-}5}\NormalTok{, }\FloatTok{1e{-}4}\NormalTok{, }\FloatTok{1e{-}3}\NormalTok{, }\FloatTok{1e{-}2}\NormalTok{), }\AttributeTok{las =} \DecValTok{1}\NormalTok{)}
+\FunctionTok{axis}\NormalTok{(}\DecValTok{1}\NormalTok{, }\AttributeTok{at =} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(KLavg), }\AttributeTok{labels =} \FunctionTok{as.integer}\NormalTok{(Ns) }\SpecialCharTok{/} \DecValTok{1000}\NormalTok{)}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{xpd =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{legend}\NormalTok{(}
+  \FunctionTok{ncol}\NormalTok{(KLavg) }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{, }
+  \FunctionTok{max}\NormalTok{(KLavg[}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{,]), }
+  \FunctionTok{c}\NormalTok{(}\StringTok{"$}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{maxentP\^{}\{(2)\}$"}\NormalTok{, }\StringTok{"$}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{maxentP\^{}\{(3)\}$"}\NormalTok{, }\StringTok{"$}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{maxentP\^{}\{(4)\}$"}\NormalTok{), }
+  \AttributeTok{col =} \FunctionTok{c}\NormalTok{(cols}\SpecialCharTok{$}\NormalTok{yellow, cols}\SpecialCharTok{$}\NormalTok{red, cols}\SpecialCharTok{$}\NormalTok{purple), }
+  \AttributeTok{lty =} \DecValTok{1}\NormalTok{, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{, }\AttributeTok{bty =} \StringTok{"n"}\NormalTok{, }\AttributeTok{cex =} \FloatTok{0.5}
+\NormalTok{)}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{xpd =} \ConstantTok{FALSE}\NormalTok{)}
+\FunctionTok{dev.off}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{mixed-order-marginal-constraints}{%
+\subsubsection{Mixed-order marginal
+constraints}\label{mixed-order-marginal-constraints}}
+
+We estimate model probability distributions \(\maxentP^{s, k}\) for all
+possible summary statistics, where each of the \(L=5\) features belongs
+to at least one cluster of features. We generate all combinations of
+marginal constraints of mixed order encompassing at least one constraint
+for each of the \(L = 5\) features using the function
+\texttt{getCombinations} provided in \texttt{../R/getCombinations.R}.
+This function takes two arguments:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{L} the number of features
+\item
+  \texttt{upTo} the maximal order of constraints to be considered
+\end{itemize}
+
+We evaluate \texttt{getCombinations} this by setting \texttt{L} = 5 and
+\texttt{upTo} = 4
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{source}\NormalTok{(}\StringTok{"../R/getCombinations.R"}\NormalTok{)}
+\NormalTok{combinations }\OtherTok{\textless{}{-}} \FunctionTok{getCombinations}\NormalTok{(}\AttributeTok{L =}\NormalTok{ L, }\AttributeTok{upTo =} \DecValTok{4}\NormalTok{)}
+\NormalTok{nn }\OtherTok{\textless{}{-}}\NormalTok{ combinations}\SpecialCharTok{$}\NormalTok{nn}
+\NormalTok{combinations }\OtherTok{\textless{}{-}}\NormalTok{ combinations}\SpecialCharTok{$}\NormalTok{combinations}
+\end{Highlighting}
+\end{Shaded}
+
+Each combination is a \texttt{list} with four sublists, each enumerating
+the indices of the marginal constraints to be considered.
+
+Again, we will subsample (with replacement) from the empirical
+distribution \(\prob f\). For this we define a function
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{subSampleMixed }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(subSampleSize)\{}
+  \DocumentationTok{\#\# define the multi{-}dimensional "empirical" distribution}
+\NormalTok{  fs }\OtherTok{\textless{}{-}} \FunctionTok{array}\NormalTok{(}
+    \DecValTok{1}\NormalTok{,}
+    \AttributeTok{dim =}\NormalTok{ q}
+\NormalTok{  )}
+  
+  \DocumentationTok{\#\# fill it with multinomial samples according to the empirical}
+  \DocumentationTok{\#\# multinomial probabilities stored in f}
+\NormalTok{  fs[idx] }\OtherTok{\textless{}{-}} \FunctionTok{rmultinom}\NormalTok{(}
+    \AttributeTok{n =} \DecValTok{1}\NormalTok{, }
+    \AttributeTok{size =}\NormalTok{ subSampleSize, }
+    \AttributeTok{prob =}\NormalTok{ h}
+\NormalTok{  )}
+  
+  \DocumentationTok{\#\# regularize all entries, where the original f was non{-}zero}
+\NormalTok{  fs[f }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{] }\OtherTok{\textless{}{-}}\NormalTok{ fs[f }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{] }\SpecialCharTok{+} \DecValTok{1}
+\NormalTok{  margByOrder }\OtherTok{\textless{}{-}} \FunctionTok{lapply}\NormalTok{(}
+    \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{),}
+    \ControlFlowTok{function}\NormalTok{(ell)\{}
+      \FunctionTok{marginalsByOrder}\NormalTok{(}
+        \AttributeTok{f =}\NormalTok{ fs,}
+        \AttributeTok{ell =}\NormalTok{ ell,}
+        \AttributeTok{L =}\NormalTok{ L}
+\NormalTok{      )}
+\NormalTok{    \}}
+\NormalTok{  )}
+  
+  \DocumentationTok{\#\# estimate the MaxEnt distribution}
+  \DocumentationTok{\#\# for each set of marginal constraints}
+\NormalTok{  PP }\OtherTok{\textless{}{-}} \FunctionTok{mclapply}\NormalTok{(}
+\NormalTok{    combinations,}
+    \ControlFlowTok{function}\NormalTok{(comb)\{}
+\NormalTok{      seed }\OtherTok{\textless{}{-}} \FunctionTok{array}\NormalTok{(}
+        \DecValTok{1}\NormalTok{,}
+        \AttributeTok{dim =}\NormalTok{ q}
+\NormalTok{      )}
+      \DocumentationTok{\#\# run IPF}
+\NormalTok{      target.list }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}
+\NormalTok{        margByOrder[[}\DecValTok{1}\NormalTok{]]}\SpecialCharTok{$}\NormalTok{list[comb[[}\DecValTok{1}\NormalTok{]]],}
+\NormalTok{        margByOrder[[}\DecValTok{2}\NormalTok{]]}\SpecialCharTok{$}\NormalTok{list[comb[[}\DecValTok{2}\NormalTok{]]],}
+\NormalTok{        margByOrder[[}\DecValTok{3}\NormalTok{]]}\SpecialCharTok{$}\NormalTok{list[comb[[}\DecValTok{3}\NormalTok{]]],}
+\NormalTok{        margByOrder[[}\DecValTok{4}\NormalTok{]]}\SpecialCharTok{$}\NormalTok{list[comb[[}\DecValTok{4}\NormalTok{]]]}
+\NormalTok{      )}
+\NormalTok{      target.data }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}
+\NormalTok{        margByOrder[[}\DecValTok{1}\NormalTok{]]}\SpecialCharTok{$}\NormalTok{marginals[comb[[}\DecValTok{1}\NormalTok{]]],}
+\NormalTok{        margByOrder[[}\DecValTok{2}\NormalTok{]]}\SpecialCharTok{$}\NormalTok{marginals[comb[[}\DecValTok{2}\NormalTok{]]],}
+\NormalTok{        margByOrder[[}\DecValTok{3}\NormalTok{]]}\SpecialCharTok{$}\NormalTok{marginals[comb[[}\DecValTok{3}\NormalTok{]]],}
+\NormalTok{        margByOrder[[}\DecValTok{4}\NormalTok{]]}\SpecialCharTok{$}\NormalTok{marginals[comb[[}\DecValTok{4}\NormalTok{]]]}
+\NormalTok{      )}
+      
+      \FunctionTok{Ipfp}\NormalTok{(}
+        \AttributeTok{seed =}\NormalTok{ seed, }
+        \AttributeTok{target.list =}\NormalTok{ target.list,}
+        \AttributeTok{target.data =}\NormalTok{ target.data,}
+        \AttributeTok{iter =} \DecValTok{10000}
+\NormalTok{      )}\SpecialCharTok{$}\NormalTok{p.hat}
+      
+\NormalTok{    \},}
+    \AttributeTok{mc.cores =} \DecValTok{256}
+\NormalTok{  )}
+  
+  \DocumentationTok{\#\# return KL Divergence }
+  \FunctionTok{sapply}\NormalTok{(}
+\NormalTok{    PP, }
+    \ControlFlowTok{function}\NormalTok{(p)\{}
+      \FunctionTok{sum}\NormalTok{(}\FunctionTok{ifelse}\NormalTok{(f }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{, f }\SpecialCharTok{*}\NormalTok{ (}\FunctionTok{log}\NormalTok{(f) }\SpecialCharTok{{-}} \FunctionTok{log}\NormalTok{(p)), }\DecValTok{0}\NormalTok{))}
+\NormalTok{    \}}
+\NormalTok{  )}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+We compute the \textsc{KL} divergence from the empirical \(\prob f\) for
+each \(k = 1, \ldots, 6\,893\) sets of marginal constraints for each
+subsample \(s\).
+
+To get reproducible results we set a \texttt{seed}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{seed }\OtherTok{=} \DecValTok{20220309}
+\FunctionTok{set.seed}\NormalTok{(seed)}
+\end{Highlighting}
+\end{Shaded}
+
+For this analysis we chose a single subsample size \(N_s = N\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# subSampleSize}
+\NormalTok{subSampleSize }\OtherTok{=}\NormalTok{ N}
+\end{Highlighting}
+\end{Shaded}
+
+We determined the \textsc{KL} divergence for each of the \(6\,893\) sets
+of marginal constraints in chunks of \texttt{nSamples} \(=100\)
+subsamples. The \textsc{KL} divergences for each set of marginal
+constraints were saved in a \texttt{RDS} file
+\texttt{../data/mixedOrder.\textless{}chunk\ \#\textgreater{}.rds}. In
+total we ran 200 chunks resulting in \(20\,000\) subsamples.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# number of samples}
+\NormalTok{nSamples }\OtherTok{=} \DecValTok{100}
+
+\DocumentationTok{\#\# subsample in chunks of 200 subsamples}
+\DocumentationTok{\#\# at a time}
+\ControlFlowTok{for}\NormalTok{ (fold }\ControlFlowTok{in} \FunctionTok{seq\_len}\NormalTok{(}\DecValTok{200}\NormalTok{))\{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%03d"}\NormalTok{, fold), }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{  dkl }\OtherTok{\textless{}{-}} \FunctionTok{lapply}\NormalTok{(}
+    \DecValTok{1}\SpecialCharTok{:}\NormalTok{nSamples,}
+    \ControlFlowTok{function}\NormalTok{(i)\{}
+      \FunctionTok{cat}\NormalTok{(}\StringTok{"."}\NormalTok{)}
+      \ControlFlowTok{if}\NormalTok{ (i }\SpecialCharTok{\%\%} \DecValTok{50} \SpecialCharTok{==} \DecValTok{0}\NormalTok{)\{}
+        \FunctionTok{cat}\NormalTok{(}\StringTok{" "}\NormalTok{, i, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{      \}}
+      \FunctionTok{subSampleMixed}\NormalTok{(subSampleSize)}
+\NormalTok{    \}}
+\NormalTok{  )}
+  
+  \FunctionTok{saveRDS}\NormalTok{(dkl, }\AttributeTok{file =} \FunctionTok{paste0}\NormalTok{(}\StringTok{"../data/mixedOrder."}\NormalTok{, }\FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%03d"}\NormalTok{, fold), }\StringTok{".rds"}\NormalTok{))}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+For convenience, we provide a R-script in
+\texttt{../R/mixedOrderConstraints.R} that performs the subsampling,
+estimation of the models, and calculation of the \textsc{kl} divergence.
+
+\hypertarget{figure-3-1}{%
+\paragraph{Figure 3}\label{figure-3-1}}
+
+We calculated the rank of the reduced coefficient matrix \(\mathbf{C}'\)
+using the function \texttt{Rank} from the \texttt{pracma} package
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!} \FunctionTok{require}\NormalTok{(}\StringTok{"pracma"}\NormalTok{, }\AttributeTok{quietly =} \ConstantTok{TRUE}\NormalTok{))}
+  \FunctionTok{install.packages}\NormalTok{(}\StringTok{"pracma"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(pracma)}
+\end{Highlighting}
+\end{Shaded}
+
+We loaded the \textsc{KL} divergences for the \(20\,000\) subsamples for
+each of the \(6,893\) sets of marginal constraints from the 200 chunks
+generated by the R-script in \texttt{../R/mixedOrderConstraints.R}. This
+resulted in a matrix \texttt{dklMixed} with \(20,000\) subsamples in the
+rows and \(6,893\) sets of marginal constraints in the columns
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# load DKLs}
+\NormalTok{dklMixed }\OtherTok{\textless{}{-}} \FunctionTok{sapply}\NormalTok{(}
+    \FunctionTok{seq\_len}\NormalTok{(}\DecValTok{200}\NormalTok{),}
+    \ControlFlowTok{function}\NormalTok{(fold)\{}
+\NormalTok{        file }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(}\StringTok{"../data/mixedOrder."}\NormalTok{, }\FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%03d"}\NormalTok{, fold), }\StringTok{".rds"}\NormalTok{)}
+        
+        \FunctionTok{readRDS}\NormalTok{(file)}
+        
+\NormalTok{    \}}
+\NormalTok{)}
+\NormalTok{dklMixed }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{unlist}\NormalTok{(dklMixed), }\AttributeTok{ncol =} \FunctionTok{length}\NormalTok{(combinations), }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+We determined the index of the all first, second, third, and forth order
+marginal constraints. For this we generated all combinations using the
+function \texttt{getCombinations} in \texttt{../R/getCombinations.R} and
+the information about
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# get the data}
+\FunctionTok{source}\NormalTok{(}\StringTok{"../R/getData.R"}\NormalTok{)}
+\DocumentationTok{\#\# getCombinations}
+\FunctionTok{source}\NormalTok{(}\StringTok{"../R/getCombinations.R"}\NormalTok{)}
+
+\NormalTok{combinations }\OtherTok{\textless{}{-}} \FunctionTok{getCombinations}\NormalTok{(L, L }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{)}
+\NormalTok{nn }\OtherTok{\textless{}{-}}\NormalTok{ combinations}\SpecialCharTok{$}\NormalTok{nn}
+\NormalTok{combinations }\OtherTok{\textless{}{-}}\NormalTok{ combinations}\SpecialCharTok{$}\NormalTok{combinations}
+\end{Highlighting}
+\end{Shaded}
+
+The index is determined by requiring the the combinations contains all 5
+first order, 10 second order, 10 third order, and 5 fourth order
+constraints:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# determine the all ell order constraints}
+\NormalTok{allOne }\OtherTok{\textless{}{-}} \FunctionTok{which}\NormalTok{(}\FunctionTok{sapply}\NormalTok{(combinations, }\ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{length}\NormalTok{(x[[}\DecValTok{1}\NormalTok{]]) }\SpecialCharTok{==} \DecValTok{5}\NormalTok{))}
+\NormalTok{allTwo }\OtherTok{\textless{}{-}} \FunctionTok{which}\NormalTok{(}\FunctionTok{sapply}\NormalTok{(combinations, }\ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{length}\NormalTok{(x[[}\DecValTok{2}\NormalTok{]]) }\SpecialCharTok{==} \DecValTok{10}\NormalTok{))}
+\NormalTok{allThree }\OtherTok{\textless{}{-}} \FunctionTok{which}\NormalTok{(}\FunctionTok{sapply}\NormalTok{(combinations, }\ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{length}\NormalTok{(x[[}\DecValTok{3}\NormalTok{]]) }\SpecialCharTok{==} \DecValTok{10}\NormalTok{))}
+\NormalTok{allFour }\OtherTok{\textless{}{-}} \FunctionTok{which}\NormalTok{(}\FunctionTok{sapply}\NormalTok{(combinations, }\ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{length}\NormalTok{(x[[}\DecValTok{4}\NormalTok{]]) }\SpecialCharTok{==} \DecValTok{5}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+We calculate the difference
+\(\Delta_{s,k} = \infdiv{\prob f}{\maxentP^{(s,k)}} - \infdiv{\prob f}{\maxentP^{(s,\ell = 4)}}\)
+for each of the subsamples \(s =1, \ldots, 20\,000\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{deltas }\OtherTok{\textless{}{-}}\NormalTok{ dklMixed }\SpecialCharTok{{-}}\NormalTok{ dklMixed[, allFour]}
+\end{Highlighting}
+\end{Shaded}
+
+and the median difference for each set \(k = 1, \ldots, 6\,893\) of
+marginal constraints
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{deltasMedian }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(deltas, }\DecValTok{2}\NormalTok{, median)}
+\end{Highlighting}
+\end{Shaded}
+
+and order them in ascending order
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{deltasMedianOrder }\OtherTok{\textless{}{-}} \FunctionTok{order}\NormalTok{(deltasMedian)}
+\end{Highlighting}
+\end{Shaded}
+
+There are several sets of marginal constraints that give the
+\emph{identical} results (see below). Thus we determined the top 10
+median \textsc{KL} divergences
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{top10 }\OtherTok{\textless{}{-}} \FunctionTok{tapply}\NormalTok{(}
+\NormalTok{    deltasMedianOrder[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{1000}\NormalTok{],}
+    \FunctionTok{round}\NormalTok{(deltasMedian[deltasMedianOrder[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{1000}\NormalTok{]], }\DecValTok{10}\NormalTok{),}
+    \ControlFlowTok{function}\NormalTok{(i) i}
+\NormalTok{)}
+\NormalTok{top10 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(}\FunctionTok{sapply}\NormalTok{(top10[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{10}\NormalTok{], length))}
+\end{Highlighting}
+\end{Shaded}
+
+The groups of sets of marginal constraints with \emph{identical} results
+can be understood on the level of the linear system, i.e.~they all have
+the same reduce row echelon form. We determined the reduced coefficient
+matrix \(\mathbf{C}'\) for each set of marginal constraints using the
+function \texttt{getCoefficientMatrix} in
+\texttt{../R/getCoefficientMatrix.R}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{source}\NormalTok{(}\StringTok{"../R/getCoefficientMatrix.R"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+The function needs the empirical marginals to determine those marginals
+that are zero
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# marginals}
+\FunctionTok{source}\NormalTok{(}\StringTok{"../R/marginalsByOrder.R"}\NormalTok{)}
+\NormalTok{margByOrder }\OtherTok{\textless{}{-}} \FunctionTok{lapply}\NormalTok{(}
+    \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{),}
+    \ControlFlowTok{function}\NormalTok{(ell)\{}
+        \FunctionTok{marginalsByOrder}\NormalTok{(}
+            \AttributeTok{f =}\NormalTok{ f,}
+            \AttributeTok{ell =}\NormalTok{ ell,}
+            \AttributeTok{L =}\NormalTok{ L}
+\NormalTok{        )}
+\NormalTok{    \}}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Furthermore, it requires the states \(\alpha_i\) for each of the
+features
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{alphas }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}
+    \AttributeTok{ageGroup =} \DecValTok{0}\SpecialCharTok{:}\DecValTok{5}\NormalTok{,}
+    \AttributeTok{sex =} \DecValTok{0}\SpecialCharTok{:}\DecValTok{1}\NormalTok{,}
+    \AttributeTok{arrivalByAmbulance =} \DecValTok{0}\SpecialCharTok{:}\DecValTok{1}\NormalTok{,}
+    \AttributeTok{hospitalization =} \DecValTok{0}\SpecialCharTok{:}\DecValTok{1}\NormalTok{,}
+    \AttributeTok{critical =} \DecValTok{0}\SpecialCharTok{:}\DecValTok{1}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+We calculated the reduced coefficient matrix \(\mathbf{C}'\) for each of
+the \(6\,893\) sets of constraints
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{CReduced }\OtherTok{\textless{}{-}} \FunctionTok{lapply}\NormalTok{(}
+\NormalTok{    combinations,}
+\NormalTok{    getCoefficientMatrix,}
+    \AttributeTok{alphas =}\NormalTok{ alphas,}
+    \AttributeTok{nn =}\NormalTok{ nn,}
+    \AttributeTok{margByOrder =}\NormalTok{ margByOrder}
+    
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Finally, we determined the rank of each reduced coefficient matrix
+\(\mathbf{C}'\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ranks }\OtherTok{\textless{}{-}} \FunctionTok{sapply}\NormalTok{(}
+\NormalTok{    CReduced,}
+\NormalTok{    Rank}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+We aggregate the data for the top 10 median \textsc{KL} divergences
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dataMixed }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}
+    \AttributeTok{deltaDkl =}\NormalTok{ deltas[,deltasMedianOrder[}\FunctionTok{seq\_len}\NormalTok{(top10)]],}
+    \AttributeTok{rank =}\NormalTok{ ranks[deltasMedianOrder[}\FunctionTok{seq\_len}\NormalTok{(top10)]],}
+    \AttributeTok{combinations =}\NormalTok{ combinations[deltasMedianOrder[}\FunctionTok{seq\_len}\NormalTok{(top10)]],}
+    \AttributeTok{coefficientMatrix =}\NormalTok{ CReduced[deltasMedianOrder[}\FunctionTok{seq\_len}\NormalTok{(top10)]],}
+    \AttributeTok{allOne =}\NormalTok{ deltasMedian[allOne],}
+    \AttributeTok{allTwo =}\NormalTok{ deltasMedian[allTwo],}
+    \AttributeTok{allThree =}\NormalTok{ deltasMedian[allThree],}
+    \AttributeTok{allFour =}\NormalTok{ deltasMedian[allFour]}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+and saved the result in the file \texttt{../data/mixedOrder.RData}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{save}\NormalTok{(dataMixed, }\AttributeTok{file =} \StringTok{"../data/mixedOrder.RData"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+For convenience, we provide a R-script in \texttt{../R/combineMixed.R}
+that generates/loads the list \texttt{dataMixed}.
+
+\textbf{Render Figure 4}
+
+Load the data
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{source}\NormalTok{(}\StringTok{"../R/combineMixed.R"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pdf}\NormalTok{(}\StringTok{"../figures/Figure4.pdf"}\NormalTok{, }\AttributeTok{width =} \FloatTok{7.08}\NormalTok{, }\AttributeTok{height =} \FloatTok{5.7}\NormalTok{, }\AttributeTok{pointsize =} \DecValTok{8}\NormalTok{)}
+\FunctionTok{layout}\NormalTok{(}
+  \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{3}\NormalTok{), }\AttributeTok{ncol =} \DecValTok{2}\NormalTok{),}
+  \AttributeTok{widths =} \FunctionTok{c}\NormalTok{(}\DecValTok{41}\NormalTok{, }\DecValTok{59}\NormalTok{)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Figure 3a:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ylim }\OtherTok{\textless{}{-}} \FunctionTok{range}\NormalTok{(dataMixed}\SpecialCharTok{$}\NormalTok{deltaDkl)}
+\NormalTok{medians }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(dataMixed}\SpecialCharTok{$}\NormalTok{deltaDkl, }\DecValTok{2}\NormalTok{, median)}
+\NormalTok{tab }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(}\FunctionTok{round}\NormalTok{(medians, }\DecValTok{10}\NormalTok{))}
+\NormalTok{cs }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FunctionTok{cumsum}\NormalTok{(tab))}
+\NormalTok{gs }\OtherTok{\textless{}{-}}\NormalTok{ (cs[}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{] }\SpecialCharTok{{-}}\NormalTok{ cs[}\SpecialCharTok{{-}}\FunctionTok{length}\NormalTok{(cs)]) }\SpecialCharTok{/} \DecValTok{2} \SpecialCharTok{+}\NormalTok{ cs[}\SpecialCharTok{{-}}\FunctionTok{length}\NormalTok{(cs)] }\SpecialCharTok{+} \FloatTok{0.5}
+\NormalTok{breaks }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\SpecialCharTok{{-}}\FunctionTok{max}\NormalTok{(}\FunctionTok{abs}\NormalTok{(ylim)) }\SpecialCharTok{*} \FloatTok{1.01}\NormalTok{, }\FunctionTok{max}\NormalTok{(}\FunctionTok{abs}\NormalTok{(ylim)) }\SpecialCharTok{*} \FloatTok{1.01}\NormalTok{, }\AttributeTok{length.out =} \DecValTok{102}\NormalTok{)}
+\NormalTok{yy }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(dataMixed}\SpecialCharTok{$}\NormalTok{deltaDkl, }\DecValTok{2}\NormalTok{, }\ControlFlowTok{function}\NormalTok{(x)  }\FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{table}\NormalTok{(}\FunctionTok{cut}\NormalTok{(x, breaks))))}
+
+\FunctionTok{plot}\NormalTok{(}\DecValTok{0}\NormalTok{, }\AttributeTok{ylim =}\NormalTok{ ylim, }\AttributeTok{xlim =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FunctionTok{ncol}\NormalTok{(yy) }\SpecialCharTok{+} \DecValTok{1}\NormalTok{), }\AttributeTok{type =} \StringTok{"n"}\NormalTok{, }
+     \AttributeTok{axes =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{ann =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{frame =} \ConstantTok{FALSE}
+\NormalTok{)}
+
+\DocumentationTok{\#\# violins}
+\NormalTok{k }\OtherTok{=} \DecValTok{1}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \FunctionTok{seq\_len}\NormalTok{(}\FunctionTok{ncol}\NormalTok{(yy)))\{}
+  
+  \ControlFlowTok{if}\NormalTok{ (k }\SpecialCharTok{\textless{}} \DecValTok{11}\NormalTok{)\{}
+    \ControlFlowTok{if}\NormalTok{ (i }\SpecialCharTok{\textgreater{}}\NormalTok{ gs[k])\{}
+\NormalTok{      tmp }\OtherTok{=}\NormalTok{ yy[, i]}
+\NormalTok{      tmp }\OtherTok{=}\NormalTok{ (tmp }\SpecialCharTok{/} \FunctionTok{max}\NormalTok{(tmp)) }\SpecialCharTok{*} \DecValTok{3}
+\NormalTok{      sel }\OtherTok{=}\NormalTok{ tmp }\SpecialCharTok{\textgreater{}} \DecValTok{0}
+\NormalTok{      tmp }\OtherTok{=}\NormalTok{ tmp[tmp }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{]}
+      \FunctionTok{rect}\NormalTok{(gs[k] }\SpecialCharTok{{-}}\NormalTok{ tmp, breaks[}\SpecialCharTok{{-}}\FunctionTok{length}\NormalTok{(breaks)][sel], }
+\NormalTok{           gs[k]}\SpecialCharTok{+}\NormalTok{ tmp, breaks[}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{][sel], }
+           \AttributeTok{col =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{grey, }\AttributeTok{border =} \ConstantTok{NA}
+\NormalTok{      )}
+      
+\NormalTok{      k }\OtherTok{\textless{}{-}}\NormalTok{ k }\SpecialCharTok{+} \DecValTok{1}
+\NormalTok{    \}}
+\NormalTok{  \}}
+  
+\NormalTok{\}}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{h =}\NormalTok{ dataMixed}\SpecialCharTok{$}\NormalTok{allThree, }\AttributeTok{col =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{red)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{h =}\NormalTok{ dataMixed}\SpecialCharTok{$}\NormalTok{allFour, }\AttributeTok{col =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{purple)}
+
+\DocumentationTok{\#\# medians}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \FunctionTok{seq\_len}\NormalTok{(}\FunctionTok{ncol}\NormalTok{(yy)))\{}
+\NormalTok{  ss }\OtherTok{=} \FunctionTok{round}\NormalTok{(medians[i], }\DecValTok{10}\NormalTok{)}
+  \CommentTok{\#points(i {-} 0.3, ss, col = cols$white, cex = 0.5, pch = 16)}
+  \ControlFlowTok{if}\NormalTok{ (}\FunctionTok{round}\NormalTok{(ss, }\DecValTok{10}\NormalTok{) }\SpecialCharTok{==} \FunctionTok{round}\NormalTok{(dataMixed}\SpecialCharTok{$}\NormalTok{allThree, }\DecValTok{10}\NormalTok{))\{}
+    \FunctionTok{points}\NormalTok{(i, ss, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{, }\AttributeTok{cex =} \FloatTok{0.8}\NormalTok{, }\AttributeTok{col =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{red)}
+\NormalTok{  \} }\ControlFlowTok{else}\NormalTok{\{}
+    \ControlFlowTok{if}\NormalTok{ (}\FunctionTok{round}\NormalTok{(ss, }\DecValTok{10}\NormalTok{) }\SpecialCharTok{==} \FunctionTok{round}\NormalTok{(dataMixed}\SpecialCharTok{$}\NormalTok{allFour, }\DecValTok{10}\NormalTok{))\{}
+      \FunctionTok{points}\NormalTok{(i, ss, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{, }\AttributeTok{cex =} \FloatTok{0.8}\NormalTok{, }\AttributeTok{col =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{purple)}
+\NormalTok{    \} }\ControlFlowTok{else}\NormalTok{\{}
+      \FunctionTok{points}\NormalTok{(i, ss, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{, }\AttributeTok{cex =} \FloatTok{0.8}\NormalTok{)}
+      
+\NormalTok{    \}}
+\NormalTok{  \}}
+  
+\NormalTok{\}}
+\FunctionTok{axis}\NormalTok{(}\DecValTok{2}\NormalTok{, }\AttributeTok{at =} \FunctionTok{seq}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{4}\NormalTok{, }\DecValTok{2}\NormalTok{, }\AttributeTok{by =} \DecValTok{2}\NormalTok{) }\SpecialCharTok{*} \FloatTok{1e{-}5}\NormalTok{, }\AttributeTok{labels =} \FunctionTok{seq}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{4}\NormalTok{, }\DecValTok{2}\NormalTok{, }\AttributeTok{by =} \DecValTok{2}\NormalTok{), }\AttributeTok{las =} \DecValTok{1}\NormalTok{) }
+\FunctionTok{axis}\NormalTok{(}\DecValTok{1}\NormalTok{, }\AttributeTok{at =}\NormalTok{ gs, }\DecValTok{72} \SpecialCharTok{{-}}\NormalTok{ dataMixed}\SpecialCharTok{$}\NormalTok{rank[gs])}
+
+\FunctionTok{mtext}\NormalTok{(tab, }\DecValTok{1}\NormalTok{, }\AttributeTok{line =} \DecValTok{2}\NormalTok{, }\AttributeTok{at =}\NormalTok{ gs)}
+
+\FunctionTok{mtext}\NormalTok{(}\StringTok{"df"}\NormalTok{, }\DecValTok{1}\NormalTok{, }\AttributeTok{line =} \DecValTok{1}\NormalTok{, }\AttributeTok{at =} \SpecialCharTok{{-}}\DecValTok{11}\NormalTok{, }\AttributeTok{adj =} \DecValTok{0}\NormalTok{)}
+\FunctionTok{mtext}\NormalTok{(}\StringTok{"\# sets"}\NormalTok{, }\DecValTok{1}\NormalTok{, }\AttributeTok{line =} \DecValTok{2}\NormalTok{, }\AttributeTok{at =} \SpecialCharTok{{-}}\DecValTok{11}\NormalTok{, }\AttributeTok{adj =} \DecValTok{0}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Figure 3b:
+
+We will need the package \texttt{HyperG}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!} \FunctionTok{require}\NormalTok{(}\StringTok{"HyperG"}\NormalTok{, }\AttributeTok{quietly =} \ConstantTok{TRUE}\NormalTok{))}
+  \FunctionTok{install.packages}\NormalTok{(}\StringTok{"HyperG"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(HyperG)}
+\end{Highlighting}
+\end{Shaded}
+
+Render the figure
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# colors for the cardinality of the constraint}
+\NormalTok{colors }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\ConstantTok{NA}\NormalTok{, cols}\SpecialCharTok{$}\NormalTok{yellow, cols}\SpecialCharTok{$}\NormalTok{red, cols}\SpecialCharTok{$}\NormalTok{purple)}
+
+\DocumentationTok{\#\# convert the combinations of constraints}
+\DocumentationTok{\#\# to a hypergraph in feature space}
+\NormalTok{nams }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"age"}\NormalTok{, }\StringTok{"sex"}\NormalTok{, }\StringTok{"amb"}\NormalTok{, }\StringTok{"hosp"}\NormalTok{, }\StringTok{"crit"}\NormalTok{)}
+\NormalTok{toHypergraph }\OtherTok{=} \ControlFlowTok{function}\NormalTok{(comb)\{}
+\NormalTok{  edges }\OtherTok{=} \FunctionTok{sapply}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{, }\ControlFlowTok{function}\NormalTok{(i) }\FunctionTok{matrix}\NormalTok{(nn[[i]]}\SpecialCharTok{$}\NormalTok{c[, comb[[i]]], }\AttributeTok{nrow =}\NormalTok{ i))}
+\NormalTok{  edges }\OtherTok{=} \FunctionTok{lapply}\NormalTok{(edges, }\ControlFlowTok{function}\NormalTok{(e) }\FunctionTok{lapply}\NormalTok{(}\FunctionTok{seq\_len}\NormalTok{(}\FunctionTok{ncol}\NormalTok{(e)), }\ControlFlowTok{function}\NormalTok{(i) nams[e[, i]]))}
+\NormalTok{  edges }\OtherTok{=} \FunctionTok{unlist}\NormalTok{(edges, }\AttributeTok{recursive =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{  cc }\OtherTok{=}\NormalTok{ colors[}\FunctionTok{sapply}\NormalTok{(edges, length)]  }
+  \FunctionTok{list}\NormalTok{(}\AttributeTok{gr =} \FunctionTok{hypergraph\_from\_edgelist}\NormalTok{(edges, nams), }\AttributeTok{cols =}\NormalTok{ cc, }\AttributeTok{edges =}\NormalTok{ edges)}
+\NormalTok{\}}
+
+\DocumentationTok{\#\# the same coordinates for the five}
+\DocumentationTok{\#\# features (a regular pentagon)}
+\NormalTok{ang }\OtherTok{=} \DecValTok{2} \SpecialCharTok{*}\NormalTok{ pi }\SpecialCharTok{/} \DecValTok{5} \SpecialCharTok{*} \DecValTok{1}\SpecialCharTok{:}\DecValTok{5}
+\NormalTok{LO }\OtherTok{=} \FunctionTok{cbind}\NormalTok{(}
+  \FunctionTok{sin}\NormalTok{(ang) }\SpecialCharTok{*} \FloatTok{0.8}\NormalTok{,}
+  \FunctionTok{cos}\NormalTok{(ang) }\SpecialCharTok{*} \FloatTok{0.8}
+\NormalTok{)}
+
+\DocumentationTok{\#\# there are 13 sets of constraints}
+\DocumentationTok{\#\# with the same reduced row echelon form}
+\DocumentationTok{\#\# we define the offsets on the plot}
+\NormalTok{offs }\OtherTok{=} \FunctionTok{cbind}\NormalTok{(}
+  \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{6}\NormalTok{, }\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{7}\NormalTok{, }\DecValTok{3}\NormalTok{,}\DecValTok{5}\NormalTok{),}
+  \FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\DecValTok{7}\NormalTok{, }\DecValTok{3}\NormalTok{), }\FunctionTok{rep}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{4}\NormalTok{), }\FunctionTok{rep}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{), }\FunctionTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\NormalTok{)}
+
+\DocumentationTok{\#\# render the graphs}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mar =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{) }\SpecialCharTok{+} \FloatTok{0.1}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{13}\NormalTok{)\{}
+\NormalTok{  gg }\OtherTok{=} \FunctionTok{toHypergraph}\NormalTok{(dataMixed}\SpecialCharTok{$}\NormalTok{combinations[[i]])}
+\NormalTok{  LOtmp }\OtherTok{=}\NormalTok{ LO}
+\NormalTok{  LOtmp[,}\DecValTok{1}\NormalTok{] }\OtherTok{=}\NormalTok{ LOtmp[,}\DecValTok{1}\NormalTok{] }\SpecialCharTok{+}\NormalTok{ offs[i,}\DecValTok{1}\NormalTok{]}
+\NormalTok{  LOtmp[,}\DecValTok{2}\NormalTok{] }\OtherTok{=}\NormalTok{ LOtmp[,}\DecValTok{2}\NormalTok{] }\SpecialCharTok{+}\NormalTok{ offs[i,}\DecValTok{2}\NormalTok{]}
+  \FunctionTok{plot.hypergraph}\NormalTok{(gg}\SpecialCharTok{$}\NormalTok{gr, }\AttributeTok{mark.col =} \FunctionTok{adjustcolor}\NormalTok{(gg}\SpecialCharTok{$}\NormalTok{cols, }\FloatTok{0.3}\NormalTok{), }\AttributeTok{mark.border =}\NormalTok{ gg}\SpecialCharTok{$}\NormalTok{cols, }
+                  \AttributeTok{vertex.size =} \DecValTok{30}\NormalTok{, }\AttributeTok{vertex.label.cex =} \DecValTok{1}\NormalTok{, }\AttributeTok{layout =}\NormalTok{ LOtmp, }
+                  \AttributeTok{xlim =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{8}\NormalTok{), }\AttributeTok{ylim =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{8}\NormalTok{), }\AttributeTok{add =}\NormalTok{ i }\SpecialCharTok{!=} \DecValTok{1}\NormalTok{, }\AttributeTok{rescale =} \ConstantTok{FALSE}\NormalTok{, }
+                  \AttributeTok{vertex.color =} \FunctionTok{c}\NormalTok{(cols}\SpecialCharTok{$}\NormalTok{white, cols}\SpecialCharTok{$}\NormalTok{black, cols}\SpecialCharTok{$}\NormalTok{yellow, cols}\SpecialCharTok{$}\NormalTok{lightblue, cols}\SpecialCharTok{$}\NormalTok{buff), }
+                  \AttributeTok{vertex.label =} \ConstantTok{NA}
+\NormalTok{  )}
+  
+\NormalTok{\}}
+\DocumentationTok{\#\# add the legend}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{xpd =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{points}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{,}\DecValTok{5}\NormalTok{,}\FloatTok{7.5}\NormalTok{), }
+       \FunctionTok{rep}\NormalTok{(}\DecValTok{9}\NormalTok{, }\DecValTok{5}\NormalTok{), }\AttributeTok{pch =} \DecValTok{21}\NormalTok{, }
+       \AttributeTok{bg =} \FunctionTok{c}\NormalTok{(cols}\SpecialCharTok{$}\NormalTok{white, cols}\SpecialCharTok{$}\NormalTok{black, cols}\SpecialCharTok{$}\NormalTok{yellow, cols}\SpecialCharTok{$}\NormalTok{lightblue, cols}\SpecialCharTok{$}\NormalTok{buff), }
+       \AttributeTok{cex =} \FloatTok{1.5}
+\NormalTok{)}
+\FunctionTok{text}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{,}\DecValTok{5}\NormalTok{,}\FloatTok{7.5}\NormalTok{), }\FunctionTok{rep}\NormalTok{(}\DecValTok{9}\NormalTok{, }\DecValTok{5}\NormalTok{), }
+     \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"age group"}\NormalTok{, }\StringTok{"sex"}\NormalTok{, }\StringTok{"ambulance"}\NormalTok{, }\StringTok{"hospitalization"}\NormalTok{, }\StringTok{"critical"}\NormalTok{), }
+     \AttributeTok{pos =} \DecValTok{4}
+\NormalTok{)}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{xpd =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Figure 3c:
+
+Compute the reduced row echelon form \(\mathbf{R}\) and the
+transformation matrix \(\mathbf{T}\) from the reduced coefficient matrix
+\(\mathbf{C}'\) for the top scoring set of constraints
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{i }\OtherTok{\textless{}{-}} \DecValTok{1}
+\NormalTok{T }\OtherTok{\textless{}{-}} \FunctionTok{rref}\NormalTok{(}
+  \FunctionTok{cbind}\NormalTok{(}
+\NormalTok{    dataMixed}\SpecialCharTok{$}\NormalTok{coefficientMatrix[[i]], }
+    \FunctionTok{diag}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(dataMixed}\SpecialCharTok{$}\NormalTok{coefficientMatrix[[i]]))}
+\NormalTok{  )}
+\NormalTok{)}
+\NormalTok{R }\OtherTok{\textless{}{-}}\NormalTok{ T[, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{72}\NormalTok{]}
+\NormalTok{T }\OtherTok{\textless{}{-}}\NormalTok{ T[, }\SpecialCharTok{{-}}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{72}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+Get the marginal states and the number of rows
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{source}\NormalTok{(}\StringTok{"../R/getMarginals.R"}\NormalTok{)}
+\NormalTok{m }\OtherTok{\textless{}{-}} \FunctionTok{getMarginals}\NormalTok{(dataMixed}\SpecialCharTok{$}\NormalTok{combinations[[i]], alphas, nn, margByOrder)}
+\NormalTok{marginalStates }\OtherTok{\textless{}{-}} \FunctionTok{getMarginalsState}\NormalTok{(dataMixed}\SpecialCharTok{$}\NormalTok{combinations[[i]], alphas, nn, margByOrder, L)}
+\NormalTok{rows }\OtherTok{\textless{}{-}}\NormalTok{ marginalStates}\SpecialCharTok{$}\NormalTok{rows}
+\NormalTok{marginalStates }\OtherTok{\textless{}{-}}\NormalTok{ marginalStates}\SpecialCharTok{$}\NormalTok{m}
+\end{Highlighting}
+\end{Shaded}
+
+Select nonzero rows in \(\mathbf{R}\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sel }\OtherTok{\textless{}{-}} \FunctionTok{which}\NormalTok{(}\FunctionTok{rowSums}\NormalTok{(R }\SpecialCharTok{!=} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{)}
+\NormalTok{R }\OtherTok{\textless{}{-}}\NormalTok{ R[sel, ]}
+\end{Highlighting}
+\end{Shaded}
+
+All admissible microstates
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{microstates }\OtherTok{\textless{}{-}}\NormalTok{ empirical[, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{][empirical}\SpecialCharTok{$}\NormalTok{count }\SpecialCharTok{!=} \DecValTok{0}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+Render the figure
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mar =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{) }\SpecialCharTok{+} \FloatTok{0.1}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(}\ConstantTok{NULL}\NormalTok{, }\AttributeTok{ylim =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FunctionTok{nrow}\NormalTok{(T) }\SpecialCharTok{+} \DecValTok{2}\NormalTok{), }\AttributeTok{xlim =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\FunctionTok{nrow}\NormalTok{(T) }\SpecialCharTok{+} \DecValTok{1}\NormalTok{), }
+     \AttributeTok{type =} \StringTok{"n"}\NormalTok{, }\AttributeTok{frame =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{axes =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{ann =} \ConstantTok{FALSE}\NormalTok{)}
+
+\DocumentationTok{\#\# marginal constraints}
+\NormalTok{cr }\OtherTok{\textless{}{-}} \FunctionTok{colorRampPalette}\NormalTok{(}\FunctionTok{c}\NormalTok{(cols}\SpecialCharTok{$}\NormalTok{white, cols}\SpecialCharTok{$}\NormalTok{black))(}\DecValTok{6}\NormalTok{)}
+\NormalTok{yy }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(marginalStates)}
+\NormalTok{ss }\OtherTok{\textless{}{-}} \FunctionTok{which}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(marginalStates[, }\DecValTok{1}\NormalTok{]))}
+\FunctionTok{points}\NormalTok{(}
+  \DecValTok{10}\SpecialCharTok{:}\DecValTok{14}\NormalTok{, }\FunctionTok{rep}\NormalTok{(}\FloatTok{100.5}\NormalTok{,}\DecValTok{5}\NormalTok{), }\AttributeTok{pch =} \DecValTok{21}\NormalTok{, }
+  \AttributeTok{bg =} \FunctionTok{c}\NormalTok{(cols}\SpecialCharTok{$}\NormalTok{white, cols}\SpecialCharTok{$}\NormalTok{black, cols}\SpecialCharTok{$}\NormalTok{yellow, cols}\SpecialCharTok{$}\NormalTok{lightblue, cols}\SpecialCharTok{$}\NormalTok{buff), }
+  \AttributeTok{cex =} \FloatTok{0.7}\NormalTok{, }\AttributeTok{lwd =} \FloatTok{0.5}
+\NormalTok{)}
+\FunctionTok{rect}\NormalTok{(}
+  \DecValTok{10} \SpecialCharTok{{-}} \FloatTok{0.5}\NormalTok{, yy[ss] }\SpecialCharTok{{-}} \FloatTok{0.5}\NormalTok{, }\DecValTok{10} \SpecialCharTok{+} \FloatTok{0.5}\NormalTok{, yy[ss] }\SpecialCharTok{+} \FloatTok{0.5}\NormalTok{, }
+  \AttributeTok{col =}\NormalTok{ cr[marginalStates[ss, }\DecValTok{1}\NormalTok{] }\SpecialCharTok{+} \DecValTok{1}\NormalTok{], }\AttributeTok{border =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{grey, }
+  \AttributeTok{lwd =} \FloatTok{0.2}
+\NormalTok{)}
+
+\NormalTok{cr }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(cols}\SpecialCharTok{$}\NormalTok{white, cols}\SpecialCharTok{$}\NormalTok{black)}
+\ControlFlowTok{for}\NormalTok{ (x }\ControlFlowTok{in} \DecValTok{2}\SpecialCharTok{:}\DecValTok{5}\NormalTok{)\{}
+\NormalTok{  ss }\OtherTok{\textless{}{-}} \FunctionTok{which}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(marginalStates[, x]))}
+  \FunctionTok{rect}\NormalTok{(}
+    \DecValTok{9} \SpecialCharTok{+}\NormalTok{ x }\SpecialCharTok{{-}} \FloatTok{0.5}\NormalTok{, yy[ss] }\SpecialCharTok{{-}} \FloatTok{0.5}\NormalTok{, }\DecValTok{9}\SpecialCharTok{+}\NormalTok{x }\SpecialCharTok{+} \FloatTok{0.5}\NormalTok{, yy[ss] }\SpecialCharTok{+} \FloatTok{0.5}\NormalTok{, }
+    \AttributeTok{col =}\NormalTok{ cr[marginalStates[ss, x] }\SpecialCharTok{+} \DecValTok{1}\NormalTok{], }\AttributeTok{border =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{grey, }
+    \AttributeTok{lwd =} \FloatTok{0.2}
+\NormalTok{  )}
+\NormalTok{\}}
+
+\DocumentationTok{\#\# labels for the sets of constraints}
+\NormalTok{y1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FunctionTok{cumsum}\NormalTok{(rows)[}\SpecialCharTok{{-}}\FunctionTok{length}\NormalTok{(rows)]) }\SpecialCharTok{+} \FloatTok{0.5}
+\NormalTok{y2 }\OtherTok{\textless{}{-}} \FunctionTok{cumsum}\NormalTok{(rows) }\SpecialCharTok{+} \FloatTok{0.5}
+
+\FunctionTok{rect}\NormalTok{(}
+  \FloatTok{8.5} \SpecialCharTok{{-}} \FloatTok{0.25} \SpecialCharTok{*}\NormalTok{ (}\FunctionTok{seq\_along}\NormalTok{(y1) }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{), y1, }\DecValTok{9} \SpecialCharTok{{-}} \FloatTok{0.25} \SpecialCharTok{*}\NormalTok{ (}\FunctionTok{seq\_along}\NormalTok{(y1) }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{), y2, }
+  \AttributeTok{col =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{purple, }\AttributeTok{border =} \ConstantTok{NA}
+\NormalTok{)}
+\NormalTok{k }\OtherTok{\textless{}{-}} \DecValTok{0}
+\NormalTok{cr }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(cols}\SpecialCharTok{$}\NormalTok{white, cols}\SpecialCharTok{$}\NormalTok{black, cols}\SpecialCharTok{$}\NormalTok{yellow, cols}\SpecialCharTok{$}\NormalTok{lightblue, cols}\SpecialCharTok{$}\NormalTok{buff)}
+\NormalTok{marginalLabel }\OtherTok{\textless{}{-}}
+  \FunctionTok{lapply}\NormalTok{(}
+    \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(dataMixed}\SpecialCharTok{$}\NormalTok{combinations[[i]]),}
+    \ControlFlowTok{function}\NormalTok{(ell)\{}
+\NormalTok{      m }\OtherTok{\textless{}{-}} \ConstantTok{NULL}
+      \ControlFlowTok{for}\NormalTok{(j }\ControlFlowTok{in}\NormalTok{ dataMixed}\SpecialCharTok{$}\NormalTok{combinations[[i]][[ell]])\{}
+\NormalTok{        m }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(m, nn[[ell]]}\SpecialCharTok{$}\NormalTok{c[, j])}
+        \FunctionTok{points}\NormalTok{(}
+          \FloatTok{8.5} \SpecialCharTok{{-}} \FloatTok{0.25} \SpecialCharTok{*}\NormalTok{ k }\SpecialCharTok{{-}}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{:}\NormalTok{ell) }\SpecialCharTok{*} \FloatTok{1.5}\NormalTok{, }\FunctionTok{rep}\NormalTok{((y1 }\SpecialCharTok{+}\NormalTok{ y2)[k }\SpecialCharTok{+} \DecValTok{1}\NormalTok{] }\SpecialCharTok{/} \DecValTok{2}\NormalTok{, ell), }
+          \AttributeTok{bg =}\NormalTok{ cr[}\FunctionTok{rev}\NormalTok{(nn[[ell]]}\SpecialCharTok{$}\NormalTok{c[, j])], }\AttributeTok{pch =} \DecValTok{21}\NormalTok{, }\AttributeTok{lwd =} \FloatTok{0.5}
+\NormalTok{        )}
+\NormalTok{        k }\OtherTok{\textless{}\textless{}{-}}\NormalTok{ k }\SpecialCharTok{+} \DecValTok{1}   
+\NormalTok{      \}}
+\NormalTok{      m}
+\NormalTok{    \}}
+\NormalTok{  )}
+
+\DocumentationTok{\#\# links between marginals and generalized marginal constraints}
+\NormalTok{rr1 }\OtherTok{\textless{}{-}} \FunctionTok{which}\NormalTok{(T }\SpecialCharTok{!=} \DecValTok{0}\NormalTok{, }\AttributeTok{arr.ind =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{segments}\NormalTok{(}
+  \DecValTok{15} \SpecialCharTok{+} \FloatTok{0.5}\NormalTok{, rr1[,}\DecValTok{2}\NormalTok{], }\DecValTok{55} \SpecialCharTok{{-}} \FloatTok{0.5}\NormalTok{, rr1[,}\DecValTok{1}\NormalTok{], }
+  \AttributeTok{col =} \FunctionTok{ifelse}\NormalTok{(T[rr1] }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{, cols}\SpecialCharTok{$}\NormalTok{red, cols}\SpecialCharTok{$}\NormalTok{blue),}
+  \AttributeTok{lwd =} \FloatTok{0.2}
+\NormalTok{)}
+
+\DocumentationTok{\#\# generalized marginal constraints}
+\NormalTok{yy2 }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(sel)}
+\FunctionTok{rect}\NormalTok{(}
+  \DecValTok{56} \SpecialCharTok{{-}} \FloatTok{0.5}\NormalTok{, yy2 }\SpecialCharTok{{-}} \FloatTok{0.5}\NormalTok{, }\DecValTok{56} \SpecialCharTok{+} \FloatTok{0.5}\NormalTok{, yy2 }\SpecialCharTok{+} \FloatTok{0.5}\NormalTok{, }
+  \AttributeTok{col =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{black, }\AttributeTok{border =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{grey,}
+  \AttributeTok{lwd =} \FloatTok{0.2}
+\NormalTok{)}
+\NormalTok{yy2 }\OtherTok{\textless{}{-}}\NormalTok{ (}\FunctionTok{length}\NormalTok{(sel) }\SpecialCharTok{+} \DecValTok{1}\NormalTok{)}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(T)}
+\FunctionTok{rect}\NormalTok{(}
+  \DecValTok{56} \SpecialCharTok{{-}} \FloatTok{0.5}\NormalTok{, yy2 }\SpecialCharTok{{-}} \FloatTok{0.5}\NormalTok{, }\DecValTok{56} \SpecialCharTok{+} \FloatTok{0.5}\NormalTok{, yy2 }\SpecialCharTok{+} \FloatTok{0.5}\NormalTok{, }
+  \AttributeTok{col =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{white, }\AttributeTok{border =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{grey,}
+  \AttributeTok{lwd =} \FloatTok{0.2}
+\NormalTok{)}
+
+\DocumentationTok{\#\# links between generalized marginal constraints and joint distribution}
+\NormalTok{rr1 }\OtherTok{\textless{}{-}} \FunctionTok{which}\NormalTok{(R }\SpecialCharTok{!=} \DecValTok{0}\NormalTok{, }\AttributeTok{arr.ind =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{segments}\NormalTok{(}
+  \DecValTok{57} \SpecialCharTok{+} \FloatTok{0.5}\NormalTok{, rr1[,}\DecValTok{1}\NormalTok{], }\DecValTok{96} \SpecialCharTok{+} \FloatTok{0.5}\NormalTok{, rr1[,}\DecValTok{2}\NormalTok{], }
+  \AttributeTok{col =} \FunctionTok{ifelse}\NormalTok{(R[rr1] }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{, cols}\SpecialCharTok{$}\NormalTok{red, cols}\SpecialCharTok{$}\NormalTok{blue),}
+  \AttributeTok{lwd =} \FloatTok{0.2}
+\NormalTok{)}
+
+\DocumentationTok{\#\# joint distribution}
+\NormalTok{cr }\OtherTok{\textless{}{-}} \FunctionTok{colorRampPalette}\NormalTok{(}\FunctionTok{c}\NormalTok{(cols}\SpecialCharTok{$}\NormalTok{white, cols}\SpecialCharTok{$}\NormalTok{black))(}\DecValTok{6}\NormalTok{)}
+\NormalTok{yy }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{:}\DecValTok{72}
+\FunctionTok{rect}\NormalTok{(}
+  \DecValTok{98} \SpecialCharTok{{-}} \FloatTok{0.5}\NormalTok{, yy }\SpecialCharTok{{-}} \FloatTok{0.5}\NormalTok{, }\DecValTok{98} \SpecialCharTok{+} \FloatTok{0.5}\NormalTok{, yy }\SpecialCharTok{+} \FloatTok{0.5}\NormalTok{, }
+  \AttributeTok{col =}\NormalTok{ cr[microstates[, }\DecValTok{1}\NormalTok{] }\SpecialCharTok{+} \DecValTok{1}\NormalTok{], }\AttributeTok{border =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{grey,}
+  \AttributeTok{lwd =} \FloatTok{0.2}
+\NormalTok{)}
+\NormalTok{cr }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(cols}\SpecialCharTok{$}\NormalTok{white, cols}\SpecialCharTok{$}\NormalTok{black)}
+\ControlFlowTok{for}\NormalTok{ (x }\ControlFlowTok{in} \DecValTok{2}\SpecialCharTok{:}\DecValTok{5}\NormalTok{)}
+  \FunctionTok{rect}\NormalTok{(}
+    \DecValTok{97} \SpecialCharTok{+}\NormalTok{ x }\SpecialCharTok{{-}} \FloatTok{0.5}\NormalTok{, yy }\SpecialCharTok{{-}} \FloatTok{0.5}\NormalTok{, }\DecValTok{97} \SpecialCharTok{+}\NormalTok{ x }\SpecialCharTok{+} \FloatTok{0.5}\NormalTok{, yy }\SpecialCharTok{+} \FloatTok{0.5}\NormalTok{, }
+    \AttributeTok{col =}\NormalTok{ cr[microstates[, x] }\SpecialCharTok{+} \DecValTok{1}\NormalTok{], }\AttributeTok{border =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{grey,}
+    \AttributeTok{lwd =} \FloatTok{0.2}
+\NormalTok{  )}
+
+\FunctionTok{points}\NormalTok{(}
+  \DecValTok{98}\SpecialCharTok{:}\DecValTok{102}\NormalTok{, }\FunctionTok{rep}\NormalTok{(}\FloatTok{73.5}\NormalTok{,}\DecValTok{5}\NormalTok{), }\AttributeTok{pch =} \DecValTok{21}\NormalTok{, }
+  \AttributeTok{bg =} \FunctionTok{c}\NormalTok{(cols}\SpecialCharTok{$}\NormalTok{white, cols}\SpecialCharTok{$}\NormalTok{black, cols}\SpecialCharTok{$}\NormalTok{yellow, cols}\SpecialCharTok{$}\NormalTok{lightblue, cols}\SpecialCharTok{$}\NormalTok{buff), }
+  \AttributeTok{cex =} \FloatTok{0.7}\NormalTok{, }\AttributeTok{lwd =} \FloatTok{0.5}
+\NormalTok{)}
+
+\DocumentationTok{\#\# legend}
+\FunctionTok{segments}\NormalTok{(}\DecValTok{95}\NormalTok{, }\DecValTok{99}\NormalTok{, }\DecValTok{97}\NormalTok{, }\DecValTok{99}\NormalTok{, }\AttributeTok{col =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{red)}
+\FunctionTok{segments}\NormalTok{(}\DecValTok{95}\NormalTok{, }\DecValTok{96}\NormalTok{, }\DecValTok{97}\NormalTok{, }\DecValTok{96}\NormalTok{, }\AttributeTok{col =}\NormalTok{ cols}\SpecialCharTok{$}\NormalTok{blue)}
+\FunctionTok{text}\NormalTok{(}\DecValTok{97}\NormalTok{,}\DecValTok{99}\NormalTok{, }\StringTok{"+1"}\NormalTok{, }\AttributeTok{pos =} \DecValTok{4}\NormalTok{)}
+\FunctionTok{text}\NormalTok{(}\DecValTok{97}\NormalTok{,}\DecValTok{96}\NormalTok{, }\StringTok{"{-}1"}\NormalTok{, }\AttributeTok{pos =} \DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}

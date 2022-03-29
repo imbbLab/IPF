@@ -1,0 +1,25 @@
+cols =
+  list(
+    white = "#F2F3F4",
+    black = "#222222",
+    yellow = "#F3C300",
+    purple = "#875692",
+    orange = "#F38400",
+    lightblue = "#A1CAF1",
+    red = "#BE0032",
+    buff = "#C2B280", 
+    grey = "#848482",
+    green = "#008856",
+    purplishpink = "#E68FAC",
+    blue = "#0067A5",
+    yellowishpink = "#F99379",
+    violet = "#604E97",
+    orangeyellow = "#F6A600",
+    purplishred = "#B3446C",
+    greenishyellow = "#DCD300",
+    reddishbrown = "#882D17",
+    yellowgreen = "#8DB600",
+    yellowishbrown = "#654522",
+    reddishorange = "#E25822",
+    olivegreen = "#2B3D26"
+  )
