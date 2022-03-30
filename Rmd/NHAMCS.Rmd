@@ -778,7 +778,7 @@ for (fold in seq_len(200)){
 ```
 For convenience, we provide a R-script in `../R/mixedOrderConstraints.R` that performs the subsampling, estimation of the models, and calculation of the \textsc{kl} divergence.
 
-#### Figure 3
+#### Figure 4
 We calculated the rank of the reduced coefficient matrix $\mathbf{C}'$ using the function `Rank` from the `pracma` package
 ```{r, message = FALSE}
 if (! require("pracma", quietly = TRUE))
@@ -918,12 +918,12 @@ source("../R/combineMixed.R")
 ```{r, eval = FALSE}
 pdf("../figures/Figure4.pdf", width = 7.08, height = 5.7, pointsize = 8)
 layout(
-  matrix(c(1, 2, 3, 3), ncol = 2),
+  matrix(c(1, 1, 2, 2, 3, 3, 3, 4), ncol = 2),
   widths = c(41, 59)
 )
 ```
 
-Figure 3a:
+Figure 4a:
 ```{r, eval = FALSE}
 ylim <- range(dataMixed$deltaDkl)
 medians <- apply(dataMixed$deltaDkl, 2, median)
@@ -985,7 +985,7 @@ mtext("df", 1, line = 1, at = -11, adj = 0)
 mtext("# sets", 1, line = 2, at = -11, adj = 0)
 ```
 
-Figure 3b:
+Figure 4b:
 
 We will need the package `HyperG`
 ```{r, message = FALSE}
@@ -1055,7 +1055,7 @@ text(c(0, 2, 3,5,7.5), rep(9, 5),
 par(xpd = FALSE)
 ```
 
-Figure 3c:
+Figure 4c:
 
 Compute the reduced row echelon form $\mathbf{R}$ and the transformation matrix $\mathbf{T}$ from the reduced coefficient matrix $\mathbf{C}'$ for the top scoring set of constraints 
 ```{r, eval = FALSE}
@@ -1204,10 +1204,102 @@ text(97,99, "+1", pos = 4)
 text(97,96, "-1", pos = 4)
 ```
 
+Figure 4d:
+
+We ran \ipf on the full data for the best model
+```{r}
+comb <- combinations[[6254]]
+## run IPF
+target.list <- c(
+    margByOrder[[1]]$list[comb[[1]]],
+    margByOrder[[2]]$list[comb[[2]]],
+    margByOrder[[3]]$list[comb[[3]]],
+    margByOrder[[4]]$list[comb[[4]]]
+)
+target.data <- c(
+    margByOrder[[1]]$marginals[comb[[1]]],
+    margByOrder[[2]]$marginals[comb[[2]]],
+    margByOrder[[3]]$marginals[comb[[3]]],
+    margByOrder[[4]]$marginals[comb[[4]]]
+)
+seed <- array(
+    1,
+    dim = q
+)
+    
+best <- Ipfp(
+    seed = seed, 
+    target.list = target.list,
+    target.data = target.data,
+    iter = 10000
+)
+```
+Then we calculated condition probabilities $P(\text{critical} = \text{yes}|\text{ageGroup}, \text{sex}, \text{arrivalByAmbulance}, \text{hospitalization})$ for the best model
+```{r}
+pCritBest <- best$p.hat[,,,,2] / apply(best$p.hat, -5, sum) * 100
+```
+for the empirical distribution $\prob{f}$
+```{r}
+pCritEmpirical <- f[,,,,2] / apply(f, -5, sum) * 100
+```
+and for the model $\maxentP^{(\ell = 2)}$ incorporating all pairwise marginal constraints
+```{r}
+pCritIPF2 <- phat2$p.hat[,,,,2] / apply(phat2$p.hat, -5, sum) * 100
+```
+
+Render the figure
+```{r, eval = FALSE}
+par(mar = c(3,3,1,0) + 0.1)
+plot(NULL, xlim = c(0,14), ylim = c(5, 26), ylab = "P", xlab = "age groups", xaxt = "n", frame = FALSE)
+
+## sex = female, arrival by ambulance = FALSE, hospitalization = yes
+points(1:6, pCritBest[,1,1,2], col = cols$orange, pch = 16)
+lines(1:6, pCritBest[,1,1,2], col = cols$orange)
+points(1:6, pCritEmpirical[,1,1,2], col = cols$purple, pch = 16)
+lines(1:6, pCritEmpirical[,1,1,2], col = cols$purple)
+points(1:6, pCritIPF2[,1,1,2], col = cols$yellow, pch = 16)
+lines(1:6, pCritIPF2[,1,1,2], col = cols$yellow)
+
+## sex = female, arrival by ambulance = TRUE, hospitalization = yes
+points(1:6, pCritBest[,1,2,2], col = cols$orange, pch = 17)
+lines(1:6, pCritBest[,1,2,2], col = cols$orange)
+points(1:6, pCritEmpirical[,1,2,2], col = cols$purple, pch = 17)
+lines(1:6, pCritEmpirical[,1,2,2], col = cols$purple)
+points(1:6, pCritIPF2[,1,2,2], col = cols$yellow, pch = 17)
+lines(1:6, pCritIPF2[,1,2,2], col = cols$yellow)
+
+## sex = male, arrival by ambulance = FALSE, hospitalization = yes
+points(1:6 + 7, pCritBest[,2,1,2], col = cols$orange, pch = 1)
+lines(1:6 + 7, pCritBest[,2,1,2], col = cols$orange)
+points(1:6 + 7, pCritEmpirical[,2,1,2], col = cols$purple, pch = 1)
+lines(1:6 + 7, pCritEmpirical[,2,1,2], col = cols$purple)
+points(1:6 + 7, pCritIPF2[,2,1,2], col = cols$yellow, pch = 1)
+lines(1:6 + 7, pCritIPF2[,2,1,2], col = cols$yellow)
+
+## sex = ale, arrival by ambulance = TRUE, hospitalization = yes
+points(1:6 + 7, pCritBest[,2,2,2], col = cols$orange, pch = 2)
+lines(1:6 + 7, pCritBest[,2,2,2], col = cols$orange)
+points(1:6 + 7, pCritEmpirical[,2,2,2], col = cols$purple, pch = 2)
+lines(1:6 + 7, pCritEmpirical[,2,2,2], col = cols$purple)
+points(1:6 + 7, pCritIPF2[,2,2,2], col = cols$yellow, pch = 2)
+lines(1:6 + 7, pCritIPF2[,2,2,2], col = cols$yellow)
+
+axis(1, at = 1:6)
+axis(1, at = 1:6 + 7)
+par(xpd = TRUE)
+text(3.5, 27, "female")
+text(10.5, 27, "male")
+```
+
+
+
+
+
+
 ```{r, results=FALSE, echo = FALSE}
 pdf("../figures/Figure4.pdf", width = 7.08, height = 5.7, pointsize = 8)
 layout(
-  matrix(c(1, 2, 3, 3), ncol = 2),
+  matrix(c(1, 1, 2, 2, 3, 3, 3, 4), ncol = 2),
   widths = c(41, 59)
 )
 ylim <- range(dataMixed$deltaDkl)
@@ -1388,6 +1480,48 @@ segments(95, 99, 97, 99, col = cols$red)
 segments(95, 96, 97, 96, col = cols$blue)
 text(97,99, "+1", pos = 4)
 text(97,96, "-1", pos = 4)
+
+par(mar = c(3,3,1,0) + 0.1)
+plot(NULL, xlim = c(0,14), ylim = c(5, 26), ylab = "P", xlab = "age groups", xaxt = "n", frame = FALSE)
+
+## sex = female, arrival by ambulance = FALSE, hospitalization = yes
+points(1:6, pCritBest[,1,1,2], col = cols$orange, pch = 16)
+lines(1:6, pCritBest[,1,1,2], col = cols$orange)
+points(1:6, pCritEmpirical[,1,1,2], col = cols$purple, pch = 16)
+lines(1:6, pCritEmpirical[,1,1,2], col = cols$purple)
+points(1:6, pCritIPF2[,1,1,2], col = cols$yellow, pch = 16)
+lines(1:6, pCritIPF2[,1,1,2], col = cols$yellow)
+
+## sex = female, arrival by ambulance = TRUE, hospitalization = yes
+points(1:6, pCritBest[,1,2,2], col = cols$orange, pch = 17)
+lines(1:6, pCritBest[,1,2,2], col = cols$orange)
+points(1:6, pCritEmpirical[,1,2,2], col = cols$purple, pch = 17)
+lines(1:6, pCritEmpirical[,1,2,2], col = cols$purple)
+points(1:6, pCritIPF2[,1,2,2], col = cols$yellow, pch = 17)
+lines(1:6, pCritIPF2[,1,2,2], col = cols$yellow)
+
+## sex = male, arrival by ambulance = FALSE, hospitalization = yes
+points(1:6 + 7, pCritBest[,2,1,2], col = cols$orange, pch = 1)
+lines(1:6 + 7, pCritBest[,2,1,2], col = cols$orange)
+points(1:6 + 7, pCritEmpirical[,2,1,2], col = cols$purple, pch = 1)
+lines(1:6 + 7, pCritEmpirical[,2,1,2], col = cols$purple)
+points(1:6 + 7, pCritIPF2[,2,1,2], col = cols$yellow, pch = 1)
+lines(1:6 + 7, pCritIPF2[,2,1,2], col = cols$yellow)
+
+## sex = ale, arrival by ambulance = TRUE, hospitalization = yes
+points(1:6 + 7, pCritBest[,2,2,2], col = cols$orange, pch = 2)
+lines(1:6 + 7, pCritBest[,2,2,2], col = cols$orange)
+points(1:6 + 7, pCritEmpirical[,2,2,2], col = cols$purple, pch = 2)
+lines(1:6 + 7, pCritEmpirical[,2,2,2], col = cols$purple)
+points(1:6 + 7, pCritIPF2[,2,2,2], col = cols$yellow, pch = 2)
+lines(1:6 + 7, pCritIPF2[,2,2,2], col = cols$yellow)
+
+axis(1, at = 1:6)
+axis(1, at = 1:6 + 7)
+par(xpd = TRUE)
+text(3.5, 27, "female")
+text(10.5, 27, "male")
+
 ```
 
 
